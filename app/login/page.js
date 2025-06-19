@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-const page = () => {
+const Page = () => {
   const [showSplash, setShowSplash] = useState(true)
   const [isLoad, setIsLoad] = useState(false)
 
@@ -95,7 +95,7 @@ const page = () => {
             {/* Sign Up Link */}
             <div className='text-center'>
               <span className='text-gray-600 text-[14px]'>
-                Don't have an account?{' '}
+                Don&apos;t have an account?{' '}
                 <Link href="/signup"
                   className='text-[#4203a9] font-medium hover:underline cursor-pointer'
                 >
@@ -132,4 +132,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

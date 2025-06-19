@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 
-const page = () => {
+const Page = () => {
   const [isLoad, setIsLoad] = useState(false)
 
   const handleLoad = () => {
@@ -125,4 +125,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
