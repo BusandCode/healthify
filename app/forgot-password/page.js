@@ -38,7 +38,7 @@ const ForgotPasswordPage = () => {
           
           {/* Description */}
           <p className='text-gray-600 text-[14px] md:text-[16px] mb-6 leading-relaxed'>
-            Enter your registered email address, and we'll send you a link to reset your password.
+            Enter your registered email address, and we&apos;ll send you a link to reset your password.
           </p>
 
           {/* Form */}
