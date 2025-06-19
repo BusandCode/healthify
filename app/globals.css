@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* For button */
+/* Use : #4203a9 */
+/* #ffff76 */
+/* #90bafc */
+body{
+  /* background: linear-gradient(135deg, , ); */
+  width: 100%;
+  height: 100%;
+  /* background: #4203a9; */
+  /* color: ; */
+  /* background:linear(); */
+}
