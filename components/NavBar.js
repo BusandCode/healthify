@@ -30,11 +30,12 @@ const NavBar = () => {
           <button
             key={item.id}
             onClick={() => handleNavClick(item.id)}
-            className={`flex flex-col items-center gap-1.5 p-3 rounded-xl transition-all duration-300 ease-out hover:bg-indigo-50 hover:-translate-y-0.5 min-w-[60px] group ${
-              isActive ? 'bg-indigo-100' : ''
+            className={`flex flex-col items-center gap-1.5 px-5 py-3 rounded-xl transition-all duration-300 ease-out 
+            hover:bg-indigo-50 hover:-translate-y-0.5 w-[75px] group ${
+            isActive ? 'bg-indigo-100' : ''
             }`}
           >
-            <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
+            <div className={`min-w-7 min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
               isActive 
                 ? 'bg-indigo-500 text-white scale-110' 
                 : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200'
