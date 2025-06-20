@@ -74,7 +74,7 @@ const Page = () => {
             </div>
 
             {/* Create Account Button */}
-            <div onClick={handleLoad} className='mt-1 bg-[#4203a9] cursor-pointer hover:bg-[#5a1bb8] transition-colors duration-300 text-white w-full h-[50px] flex justify-center items-center rounded-md'>
+            <Link href="/home-page" onClick={handleLoad} className='mt-1 bg-[#4203a9] cursor-pointer hover:bg-[#5a1bb8] transition-colors duration-300 text-white w-full h-[50px] flex justify-center items-center rounded-md'>
               {isLoad ?
                 <div className='w-8 h-8 bg-[#4203a9] border-4 border-white border-t-transparent rounded-full animate-spin mx-auto'></div>
                 : <button 
@@ -83,7 +83,7 @@ const Page = () => {
                     Create Account
                   </button>
               }
-            </div>
+            </Link>
 
             {/* Login Link */}
             <div className='text-center'>
