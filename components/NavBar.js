@@ -30,7 +30,7 @@ const NavBar = () => {
           <button
             key={item.id}
             onClick={() => handleNavClick(item.id)}
-            className={`flex flex-col items-center gap-1.5 px-5 py-3 rounded-xl transition-all duration-300 ease-out 
+            className={`flex flex-col items-center gap-1.5 px-8 py-3 rounded-xl transition-all duration-300 ease-out 
             hover:bg-indigo-50 hover:-translate-y-0.5 w-[75px] group ${
             isActive ? 'bg-indigo-100' : ''
             }`}
