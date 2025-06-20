@@ -1,6 +1,7 @@
 // app/page.js or pages/index.js (ROOT PAGE - NOT NESTED)
 // import Header from '../components/Header'
 import Header from '@/components/Header'
+import HospitalSearch from '@/components/HospitalSearch'
 import NavBar from '@/components/NavBar'
 
 export default function HomePage() {
@@ -22,6 +23,9 @@ export default function HomePage() {
           <p className='text-[#333333] text-[18px] lg:text-[20px] font-medium max-w-[600px] leading-relaxed'>
             Easily locate providers, view services, and schedule your next visit with confidence
           </p>
+
+          {/* Hospital Search */}
+          <HospitalSearch />
           
           {/* Content Grid */}
           <div className="w-full max-w-4xl">
