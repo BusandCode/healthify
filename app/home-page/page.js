@@ -2,6 +2,7 @@
 import Header from '@/components/Header'
 import HospitalSearch from '@/components/HospitalSearch'
 import NavBar from '@/components/NavBar'
+import Image from 'next/image';
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 export default function HomePage() {
@@ -29,11 +30,11 @@ export default function HomePage() {
 
           {/* Why choose us */}
           {/* Why Choose Our Platform Section */}
-          <div className="w-full max-w-6xl mt-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="w-full py-10 mt-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* Left side - Image placeholder */}
-              <div className="w-full">
-                <div className="w-full h-80 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg"></div>
+              <div className="w-full lg:ml-10">
+                <Image src="/doctor.png" alt='doctor Img' width={300} height={300}/>
               </div>
 
               {/* Right side - Content */}
