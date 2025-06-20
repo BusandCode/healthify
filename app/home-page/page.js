@@ -92,12 +92,6 @@ function FAQ() {
           </div>
         ))}
       </div>
-      
-      <div className="text-center mt-8">
-        <p className="text-gray-600 text-sm">
-          Still have questions? <a href="/contact" className="text-[#4203a9] hover:underline font-medium">Contact our support team</a>
-        </p>
-      </div>
     </div>
   );
 }
