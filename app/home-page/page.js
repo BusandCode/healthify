@@ -6,6 +6,7 @@ import NavBar from '@/components/NavBar'
 import Image from 'next/image';
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { useState } from 'react';
+import Footer from '@/components/Footer';
 
 // FAQ Component
 function FAQ() {
@@ -215,6 +216,9 @@ export default function HomePage() {
           {/* FAQ Section */}
           <FAQ />
         </div>
+
+        {/* Footer */}
+        <Footer />
       </main>
     </div>
   )
