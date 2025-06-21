@@ -132,7 +132,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* Left side - Image placeholder */}
               <div className="w-full lg:ml-10">
-                <Image src="/doctor.png" alt='doctor Img' width={300} height={300}/>
+                <Image src="/doctor-2.png" alt='doctor Img' width={300} height={300} className='rounded-lg'/>
               </div>
 
               {/* Right side - Content */}
