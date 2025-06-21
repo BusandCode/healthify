@@ -110,13 +110,19 @@ export default function HomePage() {
       <main className="ml-[170px] pt-[100px]">
         {/* Hero Section */}
         <div className='flex flex-col items-start justify-center gap-10 mx-10 py-10'>
+
+          {/* Description */}
+          <div className='flex justify-center items-center gap-1'>
+          <div>
           <h1 className='font-semibold text-[30px] lg:text-[55px] max-w-[800px] text-[#4203a9] leading-tight'>
             Your Path to Affordable Healthcare Starts Here
           </h1>
           <p className='text-[#333333] text-[18px] lg:text-[20px] font-medium max-w-[600px] leading-relaxed'>
             Easily locate providers, view services, and schedule your next visit with confidence
           </p>
-
+          </div>
+          <Image src="/doctor.png" width={200} height={200} alt='Doctor Image'/>
+          </div>
           {/* Hospital Search */}
           <HospitalSearch />
 
