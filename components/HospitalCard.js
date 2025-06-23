@@ -74,35 +74,30 @@ const HospitalCard = () => {
         Find Healthcare Services
       </h1>
       
-      {/* Search Bar */}
-      <div className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8">
-        {/* Search Input */}
-        <div className="relative w-full">
-          <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-[#4203a9]" size={18} />
+            {/* Search Bar */}
+      <div className="flex flex-col sm:flex-row gap-4 mb-8">
+        <div className="relative w-full flex items-center justify-center">
+          <Search className="absolute left-5 text-[#4203a9] " size={20} />
           <input
             type="text"
             placeholder="Search by name of hospital"
-            className="w-full h-12 sm:h-14 lg:h-16 pl-10 sm:pl-12 pr-4 border border-gray-300 rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9] focus:border-transparent"
+            className="w-full max-w-[415px] h-[70px] pl-10 pr-4 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9]"
           />
         </div>
-        
-        {/* Location Input and Filter Button Container */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <div className="relative flex-1">
-            <MapPin className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-[#4203a9]" size={18} />
-            <input
-              type="text"
-              placeholder="Enter Location"
-              className="w-full h-12 sm:h-14 lg:h-16 pl-10 sm:pl-12 pr-4 border border-gray-300 rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9] focus:border-transparent"
-            />
-          </div>
-          
-          <button className="h-12 sm:h-14 lg:h-16 flex items-center justify-center gap-2 bg-[#D9D9D9] border border-gray-300 rounded-lg text-[#2C2C2C] hover:bg-gray-100 transition px-4 sm:px-6 text-sm sm:text-base whitespace-nowrap sm:min-w-[180px]">
-            <SlidersHorizontal size={16} className='text-[#4203a9]' /> 
-            <span className="hidden sm:inline">Advanced Filters</span>
-            <span className="sm:hidden">Filters</span>
-          </button>
+        <div className="relative w-full flex items-center justify-center">
+          <MapPin className="absolute left-5 text-[#4203a9]" size={20} />
+          <input
+            type="text"
+            placeholder="Enter Location"
+            className="w-full max-w-[415px] h-[70px] pl-10 pr-4 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9]"
+          />
         </div>
+        <button className="max-w-[215px] h-[70px] flex items-center 
+        justify-center gap-2 bg-[#D9D9D9] border border-gray-300 rounded-[5px] 
+        text-[#2C2C2C] hover:bg-gray-100 transition w-full">
+        <SlidersHorizontal size={18} className='text-[#4203a9] text-[20px] w-[16px] h-[18px]' /> 
+        Advanced Filters
+        </button>
       </div>
 
       {/* Hospital Cards */}
