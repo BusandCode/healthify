@@ -266,10 +266,10 @@ export default function HomePage() {
                   <div className="w-full h-24 sm:h-32 bg-gray-200/40 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
                     {service.icon}
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">
+                  <h3 className="font-semibold text-center text-gray-900 mb-2 text-sm sm:text-base">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-gray-600 text-center text-xs sm:text-sm leading-relaxed">
                     {service.description}
                   </p>
                 </div>
