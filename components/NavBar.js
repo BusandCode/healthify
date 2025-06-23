@@ -16,9 +16,9 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="fixed left-0 top-[80px] bg-[#FAFAFA] shadow-xl 
+    <nav className="hidden fixed left-0 top-[80px] bg-[#FAFAFA] shadow-xl 
     backdrop-blur-sm border border-white/20 w-[170px] min-h-[calc(100vh-80px)]
-     flex flex-col items-center z-40">
+     lg:flex flex-col items-center z-40">
       
       {/* Navigation Items Container - positioned at top */}
       <div className="flex flex-col items-center gap-6 pt-8">

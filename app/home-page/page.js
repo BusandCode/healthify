@@ -52,12 +52,12 @@ function FAQ() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-16">
-      <h2 className="text-3xl font-bold text-[#4203a9] text-center mb-12">
+    <div className="w-full max-w-4xl mx-auto py-8 px-4 sm:py-16">
+      <h2 className="text-2xl sm:text-3xl font-bold text-[#4203a9] text-center mb-8 sm:mb-12">
         Frequently Asked Questions
       </h2>
       
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {faqData.map((item, index) => (
           <div 
             key={index} 
@@ -65,27 +65,27 @@ function FAQ() {
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+              className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
             >
-              <span className="font-medium text-gray-800 pr-4">
+              <span className="font-medium text-gray-800 pr-4 text-sm sm:text-base">
                 {item.question}
               </span>
               <div className="flex-shrink-0">
                 {openIndex === index ? (
-                  <div className="w-6 h-6 bg-[#4203a9] rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-bold">−</span>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#4203a9] rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs sm:text-sm font-bold">−</span>
                   </div>
                 ) : (
-                  <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-bold">+</span>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs sm:text-sm font-bold">+</span>
                   </div>
                 )}
               </div>
             </button>
             
             {openIndex === index && (
-              <div className="px-6 pb-4 border-t border-gray-100">
-                <p className="text-gray-700 text-sm leading-relaxed pt-3">
+              <div className="px-4 sm:px-6 pb-3 sm:pb-4 border-t border-gray-100">
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed pt-3">
                   {item.answer}
                 </p>
               </div>
@@ -107,72 +107,98 @@ export default function HomePage() {
       <NavBar />
 
       {/* Main Content */}
-      <main className="ml-[170px] pt-[100px]">
+      <main className="lg:ml-[170px] pt-[80px] sm:pt-[100px]">
         {/* Hero Section */}
-        <div className='flex flex-col items-start justify-center gap-10 mx-10 py-10'>
+        <div className='flex flex-col items-start justify-center gap-6 sm:gap-10 mx-4 sm:mx-6 lg:mx-10 py-6 sm:py-10'>
 
           {/* Description */}
-          <div className='flex justify-center items-center gap-1'>
-          <div>
-          <h1 className='font-semibold text-[30px] lg:text-[55px] max-w-[800px] text-[#4203a9] leading-tight'>
-            Your Path to Affordable Healthcare Starts Here
-          </h1>
-          <p className='text-[#333333] text-[18px] lg:text-[20px] font-medium max-w-[600px] leading-relaxed'>
-            Easily locate providers, view services, and schedule your next visit with confidence
-          </p>
+          <div className='flex justify-center items-center gap-4 sm:gap-1 flex-col lg:flex-row w-full'>
+            <div className="text-center lg:text-left">
+              <h1 className='font-semibold text-[24px] sm:text-[32px] md:text-[40px] lg:text-[55px] lg:max-w-[800px] text-[#4203a9] leading-tight px-2 sm:px-0'>
+                Your Path to Affordable Healthcare Starts Here
+              </h1>
+              <p className='text-[#333333] text-[16px] sm:text-[18px] lg:text-[20px] font-medium max-w-[600px] leading-relaxed mt-3 sm:mt-4 px-2 sm:px-0'>
+                Easily locate providers, view services, and schedule your next visit with confidence
+              </p>
+            </div>
+            <div className="flex-shrink-0 mt-4 lg:mt-0">
+              <Image 
+                src="/doctor.png" 
+                width={500} 
+                height={500} 
+                alt='Doctor Image'
+                className="sm:w-[180px] sm:h-[180px] lg:w-[300px] lg:h-[300px]"
+              />
+            </div>
           </div>
-          <Image src="/doctor.png" width={200} height={200} alt='Doctor Image'/>
-          </div>
-          {/* Hospital Search */}
-          <HospitalSearch />
 
-          {/* Why choose us */}
+          {/* Hospital Search */}
+          <div className="w-full">
+            <HospitalSearch />
+          </div>
+
           {/* Why Choose Our Platform Section */}
-          <div className="w-full py-10 mt-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Left side - Image placeholder */}
-              <div className="w-full lg:ml-10">
-                <Image src="/doctor-2.png" alt='doctor Img' width={300} height={300} className='rounded-lg'/>
+          <div className="w-full py-6 sm:py-10 mt-8 sm:mt-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+              {/* Left side - Image */}
+              <div className="w-full flex justify-center lg:justify-start order-2 lg:order-1 lg:ml-10">
+                <Image 
+                  src="/doctor-2.png" 
+                  alt='doctor Img' 
+                  width={250} 
+                  height={250} 
+                  className='rounded-lg sm:w-[280px] sm:h-[280px] lg:w-[300px] lg:h-[300px]'
+                />
               </div>
 
               {/* Right side - Content */}
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold text-[#4203a9] mb-8">
+              <div className="space-y-4 sm:space-y-6 order-1 lg:order-2 px-2 sm:px-0">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#4203a9] mb-4 sm:mb-8 text-center lg:text-left">
                   Why Choose Our Platform?
                 </h2>
                 
-                <div className="space-y-4">
-                 <div className="flex items-center gap-3">
-                    <IoMdCheckmarkCircleOutline />
-                    <p className="text-gray-700 text-[15px] text-base leading-relaxed">
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                    </div>
+                    <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Locate trusted doctors, clinics, and hospitals in your area
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <IoMdCheckmarkCircleOutline />
-                    <p className="text-gray-700 text-[15px] text-base leading-relaxed">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                    </div>
+                    <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Compare consultation fees and check accepted insurance plans
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <IoMdCheckmarkCircleOutline />
-                    <p className="text-gray-700 text-[15px] text-base leading-relaxed">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                    </div>
+                    <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Book appointments with reminders to ensure you never miss a visit
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <IoMdCheckmarkCircleOutline />
-                    <p className="text-gray-700 text-[15px] text-base leading-relaxed">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                    </div>
+                    <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Help improve healthcare by sharing your feedback
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <IoMdCheckmarkCircleOutline />
-                    <p className="text-gray-700 text-[15px] text-base leading-relaxed">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                    </div>
+                    <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Easily save hospitals for quick access to care in the future
                     </p>
                   </div>
@@ -181,18 +207,18 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Content Grid */}
-          <div className="w-full max-w-4xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          {/* Content Grid - First Set */}
+          <div className="w-full max-w-6xl mx-auto px-2 sm:px-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-full h-32 bg-gradient-to-br from-[#4203a9]/10 to-[#4203a9]/20 rounded-lg mb-4 flex items-center justify-center">
-                    <div className="w-12 h-12 bg-[#4203a9]/20 rounded-full flex items-center justify-center">
-                      <div className="w-6 h-6 bg-[#4203a9] rounded"></div>
+                <div key={i} className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300">
+                  <div className="w-full h-24 sm:h-32 bg-gradient-to-br from-[#4203a9]/10 to-[#4203a9]/20 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#4203a9]/20 rounded-full flex items-center justify-center">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#4203a9] rounded"></div>
                     </div>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Healthcare Service {i}</h3>
-                  <p className="text-gray-600 text-sm">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Healthcare Service {i}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                     Discover quality healthcare services tailored to your needs with our comprehensive platform.
                   </p>
                 </div>
@@ -200,18 +226,18 @@ export default function HomePage() {
             </div>
           </div>
           
-          {/* Content Grid */}
-          <div className="w-full max-w-4xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-full h-32 bg-gradient-to-br from-[#4203a9]/10 to-[#4203a9]/20 rounded-lg mb-4 flex items-center justify-center">
-                    <div className="w-12 h-12 bg-[#4203a9]/20 rounded-full flex items-center justify-center">
-                      <div className="w-6 h-6 bg-[#4203a9] rounded"></div>
+          {/* Content Grid - Second Set */}
+          <div className="w-full max-w-6xl mx-auto px-2 sm:px-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-12">
+              {[4, 5, 6].map((i) => (
+                <div key={i} className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300">
+                  <div className="w-full h-24 sm:h-32 bg-gradient-to-br from-[#4203a9]/10 to-[#4203a9]/20 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#4203a9]/20 rounded-full flex items-center justify-center">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#4203a9] rounded"></div>
                     </div>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Healthcare Service {i}</h3>
-                  <p className="text-gray-600 text-sm">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Healthcare Service {i}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                     Discover quality healthcare services tailored to your needs with our comprehensive platform.
                   </p>
                 </div>
