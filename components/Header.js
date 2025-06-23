@@ -78,10 +78,10 @@ const Header = () => {
               Home
             </a>
             <a href="#" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
-              Find Doctors
+              Explore
             </a>
             <a href="#" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
-              Hospitals
+              Bookings
             </a>
             <a href="#" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
               Services
