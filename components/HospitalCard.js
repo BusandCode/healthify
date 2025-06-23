@@ -27,7 +27,7 @@ const hospitals = [
   },
   {
     id: 3,
-    name: 'National Orthopaedic Hospital',
+    name: 'National OrthoRx Hospital',
     image: '/national.jpg',
     distance: '4.1 miles',
     fee: '$10.00 - $25.00',
