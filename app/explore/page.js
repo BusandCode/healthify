@@ -15,7 +15,7 @@ const page = () => {
       <NavBar />
 
       {/* Main content */}
-      <main className="lg:ml-[185px] pt-[80px] sm:pt-[100px]">
+      <main className="lg:ml-[170px] pt-[80px] sm:pt-[100px] flex flex-col gap-[100px]">
         {/* Hospital Cards */}
         <HospitalCard />
       <Footer />
