@@ -105,13 +105,13 @@ const HospitalCard = () => {
           <div key={hospital.id} className="bg-white max-w-[330px] h-[616px] 
           rounded-[25px] shadow border border-gray-200 overflow-hidden relative">
             <div className='max-w-[300px] mx-auto h-[566px] flex flex-col justify-center items-start'>
-                <div className="relative">
+                <div className="relative mx-auto">
               <Image
                 src={hospital.image}
                 alt={hospital.name}
                 width={400}
                 height={250}
-                className="max-w-[280px] h-[250px] rounded-[15px]"
+                className="max-w-[280px] h-[250px] mx-auto rounded-[15px]"
               />
               <span className="absolute top-4 left-2 bg-white text-xs px-2 py-1 rounded shadow">
                 {hospital.distance}
