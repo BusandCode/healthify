@@ -234,7 +234,7 @@ const HospitalCard = () => {
           </button> */}
         <button 
         onClick={() => setShowFilter(true)}
-        className="max-w-[300px] lg:max-w-[215px] h-[50px] lg:h-[70px] flex items-center
+        className="max-w-[300px] mx-auto lg:max-w-[215px] h-[50px] lg:h-[70px] flex items-center
          justify-center gap-2 bg-[#D9D9D9] border border-gray-300 rounded-[5px] 
          text-[#2C2C2C] hover:bg-gray-100 transition w-full">
          <SlidersHorizontal size={18} className='text-blue-600 text-[20px] w-[16px] h-[18px]' /> 
