@@ -70,7 +70,7 @@ const hospitals = [
 const HospitalCard = () => {
   return (
     <div className="px-4 lg:px-8 py-6 max-w-7xl mx-auto">
-    <h1 className='font-semibold text-[24px] sm:text-[20px] md:text-[30px] lg:text-[40px]
+    <h1 className='font-semibold mb-5 text-[24px] sm:text-[20px] md:text-[30px] lg:text-[40px]
           text-[#4203a9]'>
           Find Healthcare Services</h1>
       {/* Search Bar */}
