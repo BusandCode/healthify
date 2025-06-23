@@ -104,7 +104,7 @@ const HospitalCard = () => {
         {hospitals.map((hospital) => (
           <div key={hospital.id} className="bg-white max-w-[330px] h-[616px] 
           rounded-[25px] shadow border border-gray-200 overflow-hidden relative">
-            <div className='max-w-[280px] mx-auto h-[566px] flex flex-col justify-center items-center'>
+            <div className='max-w-[300px] mx-auto h-[566px] flex flex-col justify-center items-start'>
                 <div className="relative">
               <Image
                 src={hospital.image}
@@ -124,7 +124,7 @@ const HospitalCard = () => {
                 General Services
               </span>
               <h3 className="mt-2 font-medium text-[23px]">{hospital.name}</h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-1">
+              <p className="text-[16.5px] text-gray-600 mb-1">
                 Constatation fee: <span className="font-medium">{hospital.fee}</span>
               </p>
               <p className="text-sm sm:text-base text-blue-500 underline">{hospital.address}</p>
