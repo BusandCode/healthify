@@ -210,7 +210,7 @@ const HospitalCard = () => {
       
             
              {/* Search Bar */}
-       <div className="flex flex-col sm:flex-row gap-4 mb-8">
+       <div className="flex flex-col sm:flex-row gap-4 mb-8 ">
          <div className="relative w-full flex items-center justify-center">
            <Search className="absolute left-5 text-[#4203a9] " size={20} />
            <input
@@ -246,7 +246,7 @@ const HospitalCard = () => {
         </div>
 
       {/* Hospital Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 px-4 lg:px-0 sm:gap-6 justify-items-center">
         {hospitals.map((hospital) => (
           <div key={hospital.id} className="bg-white w-full max-w-[340px] sm:max-w-[320px] lg:max-w-[350px] rounded-2xl sm:rounded-3xl shadow-md border border-gray-200 overflow-hidden">
             <div className="p-3 sm:p-4 lg:p-5">
