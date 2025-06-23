@@ -5,6 +5,14 @@ import HospitalSearch from '@/components/HospitalSearch'
 import NavBar from '@/components/NavBar'
 import Image from 'next/image';
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { 
+  FaUserMd, 
+  FaHospital, 
+  FaCalendarAlt, 
+  FaShieldAlt, 
+  FaMapMarkerAlt, 
+  FaHeartbeat 
+} from "react-icons/fa"
 import { useState } from 'react';
 import Footer from '@/components/Footer';
 
@@ -98,6 +106,39 @@ function FAQ() {
 }
 
 export default function HomePage() {
+  const services = [
+    {
+      icon: <FaUserMd className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      title: "Find Qualified Doctors",
+      description: "Connect with board-certified physicians and specialists in your area. View their credentials, experience, and patient reviews to make informed healthcare decisions."
+    },
+    {
+      icon: <FaHospital className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      title: "Locate Top Hospitals",
+      description: "Discover accredited hospitals and medical centers near you. Compare facilities, services offered, and quality ratings to choose the best care for your needs."
+    },
+    {
+      icon: <FaCalendarAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      title: "Easy Appointment Booking",
+      description: "Schedule appointments instantly with real-time availability. Get confirmation notifications and reminders to ensure you never miss important medical visits."
+    },
+    {
+      icon: <FaShieldAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      title: "Insurance Verification",
+      description: "Check which providers accept your insurance plan before booking. Avoid surprise bills and ensure your coverage is accepted at your chosen healthcare facility."
+    },
+    {
+      icon: <FaMapMarkerAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      title: "Location-Based Search",
+      description: "Find healthcare providers by distance, neighborhood, or specific address. Get directions, parking information, and public transit options for easy access."
+    },
+    {
+      icon: <FaHeartbeat className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      title: "Emergency Care Locator",
+      description: "Quickly locate the nearest emergency rooms and urgent care centers. Access critical information like wait times and specialized emergency services available."
+    }
+  ]
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header Component */}
@@ -124,10 +165,10 @@ export default function HomePage() {
             <div className="flex-shrink-0 mt-4 lg:mt-0">
               <Image 
                 src="/doctor.png" 
-                width={500} 
-                height={500} 
+                width={300} 
+                height={300} 
                 alt='Doctor Image'
-                className="sm:w-[180px] sm:h-[180px] lg:w-[300px] lg:h-[300px]"
+                className="sm:w-[180px] sm:h-[180px] lg:w-[250px] lg:h-[300px]"
               />
             </div>
           </div>
@@ -207,38 +248,29 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Content Grid - First Set */}
+          {/* Services Section Title */}
+          <div className="w-full text-center mt-8 sm:mt-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#4203a9] mb-4">
+              Our Healthcare Services
+            </h2>
+            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+              Discover comprehensive healthcare solutions designed to make your medical journey easier and more accessible
+            </p>
+          </div>
+
+          {/* Content Grid - All Services */}
           <div className="w-full max-w-6xl mx-auto px-2 sm:px-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300">
+              {services.map((service, index) => (
+                <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="w-full h-24 sm:h-32 bg-gradient-to-br from-[#4203a9]/10 to-[#4203a9]/20 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#4203a9]/20 rounded-full flex items-center justify-center">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#4203a9] rounded"></div>
-                    </div>
+                    {service.icon}
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Healthcare Service {i}</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">
+                    {service.title}
+                  </h3>
                   <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                    Discover quality healthcare services tailored to your needs with our comprehensive platform.
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Content Grid - Second Set */}
-          <div className="w-full max-w-6xl mx-auto px-2 sm:px-0">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-12">
-              {[4, 5, 6].map((i) => (
-                <div key={i} className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-full h-24 sm:h-32 bg-gradient-to-br from-[#4203a9]/10 to-[#4203a9]/20 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#4203a9]/20 rounded-full flex items-center justify-center">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#4203a9] rounded"></div>
-                    </div>
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Healthcare Service {i}</h3>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                    Discover quality healthcare services tailored to your needs with our comprehensive platform.
+                    {service.description}
                   </p>
                 </div>
               ))}
