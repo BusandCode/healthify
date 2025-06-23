@@ -204,27 +204,27 @@ const HospitalCard = () => {
   return (
     <div>
     <div className="px-3 sm:px-4 lg:px-8 py-4 sm:py-6 max-w-7xl mx-auto">
-      <h1 className='font-semibold mb-4 sm:mb-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#4203a9] leading-tight'>
+      <h1 className='font-semibold mb-8 lg:mb-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#4203a9] leading-tight'>
         Find Healthcare Services
       </h1>
       
             
              {/* Search Bar */}
-       <div className="flex flex-col sm:flex-row gap-4 mb-8 ">
+       <div className="flex flex-col sm:flex-row gap-4 mb-8">
          <div className="relative w-full flex items-center justify-center">
-           <Search className="absolute left-5 text-[#4203a9] " size={20} />
+           <Search className="absolute left-5 text-blue-600" size={20} />
            <input
             type="text"
             placeholder="Search by name of hospital"
-            className="w-full max-w-[415px] h-[70px] pl-10 pr-4 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9]"
+            className="w-full max-w-[300px] lg:max-w-[415px] h-[50px] lg:h-[70px] pl-12 pr-4 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9]"
           />
         </div>
         <div className="relative w-full flex items-center justify-center">
-          <MapPin className="absolute left-5 text-[#4203a9]" size={20} />
+          <MapPin className="absolute left-5 text-blue-600" size={20} />
           <input
             type="text"
             placeholder="Enter Location"
-            className="w-full max-w-[415px] h-[70px] pl-10 pr-4 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9]"
+            className="w-full max-w-[300px] lg:max-w-[415px] h-[50px] lg:h-[70px] pl-12 pr-4 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9]"
           />
         </div>
           {/* <button 
@@ -234,13 +234,13 @@ const HospitalCard = () => {
           </button> */}
         <button 
         onClick={() => setShowFilter(true)}
-        className="max-w-[215px] h-[70px] flex items-center
+        className="max-w-[300px] lg:max-w-[215px] h-[50px] lg:h-[70px] flex items-center
          justify-center gap-2 bg-[#D9D9D9] border border-gray-300 rounded-[5px] 
          text-[#2C2C2C] hover:bg-gray-100 transition w-full">
-         <SlidersHorizontal size={18} className='text-[#4203a9] text-[20px] w-[16px] h-[18px]' /> 
+         <SlidersHorizontal size={18} className='text-blue-600 text-[20px] w-[16px] h-[18px]' /> 
          {/* <SlidersHorizontal size={16} className='text-[#4203a9]' />  */}
-        <span className="hidden sm:inline">Advanced Filters</span>
-        <span className="sm:hidden">Filters</span>
+        <span className="sm:inline">Advanced Filters</span>
+        {/* <span className="sm:hidden ">Filters</span> */}
          </button>
      </div>
         </div>

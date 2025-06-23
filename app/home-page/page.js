@@ -108,32 +108,32 @@ function FAQ() {
 export default function HomePage() {
   const services = [
     {
-      icon: <FaUserMd className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaUserMd className="text-2xl sm:text-3xl text-blue-600" />,
       title: "Find Qualified Doctors",
       description: "Connect with board-certified physicians and specialists in your area. View their credentials, experience, and patient reviews to make informed healthcare decisions."
     },
     {
-      icon: <FaHospital className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaHospital className="text-2xl sm:text-3xl text-blue-600" />,
       title: "Locate Top Hospitals",
       description: "Discover accredited hospitals and medical centers near you. Compare facilities, services offered, and quality ratings to choose the best care for your needs."
     },
     {
-      icon: <FaCalendarAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaCalendarAlt className="text-2xl sm:text-3xl text-blue-600" />,
       title: "Easy Appointment Booking",
       description: "Schedule appointments instantly with real-time availability. Get confirmation notifications and reminders to ensure you never miss important medical visits."
     },
     {
-      icon: <FaShieldAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaShieldAlt className="text-2xl sm:text-3xl text-blue-600" />,
       title: "Insurance Verification",
       description: "Check which providers accept your insurance plan before booking. Avoid surprise bills and ensure your coverage is accepted at your chosen healthcare facility."
     },
     {
-      icon: <FaMapMarkerAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaMapMarkerAlt className="text-2xl sm:text-3xl text-blue-600" />,
       title: "Location-Based Search",
       description: "Find healthcare providers by distance, neighborhood, or specific address. Get directions, parking information, and public transit options for easy access."
     },
     {
-      icon: <FaHeartbeat className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaHeartbeat className="text-2xl sm:text-3xl text-blue-600" />,
       title: "Emergency Care Locator",
       description: "Quickly locate the nearest emergency rooms and urgent care centers. Access critical information like wait times and specialized emergency services available."
     }
@@ -263,7 +263,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
               {services.map((service, index) => (
                 <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-full h-24 sm:h-32 bg-gradient-to-br from-[#4203a9]/10 to-[#4203a9]/20 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
+                  <div className="w-full h-24 sm:h-32 bg-gray-200/40 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
                     {service.icon}
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">
