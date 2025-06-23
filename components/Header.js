@@ -20,7 +20,7 @@ const Header = () => {
         </div>
         
         {/* Desktop Navigation */}
-        <div className='hidden lg:flex gap-10 items-center'>
+        <div className='hidden lg:flex gap-10 items-center cursor-pointer'>
           <IoNotificationsOutline className='w-[50px] h-[50px] rounded-[60px] text-gray-500 bg-[#F5F5F5] p-3'/>
           <button className='bg-[#4203a9] max-w-[250px] h-[62px] p-[15px] rounded-[5px] text-white text-[20px] font-medium'>
             Book Appointment
@@ -28,7 +28,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className='lg:hidden flex items-center gap-3'>
+        <div className='lg:hidden flex items-center gap-3 cursor-pointer'>
           {/* Mobile Notification Icon */}
           <IoNotificationsOutline className='w-[35px] h-[35px] rounded-full text-gray-500 bg-[#F5F5F5] p-2'/>
           
@@ -97,14 +97,14 @@ const Header = () => {
 
           {/* Mobile Actions */}
           <div className='pt-4 border-t border-gray-200 space-y-3'>
-            <button className='w-full bg-[#4203a9] text-white py-3 px-4 rounded-md font-medium hover:bg-[#4203a9]/90 transition-colors duration-200'>
+            <button className='w-full bg-[#4203a9] cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-[#4203a9]/90 transition-colors duration-200'>
               Book Appointment
             </button>
             
-            <div className='flex items-center justify-center gap-2 py-2 text-sm text-gray-600'>
+            {/* <div className='flex items-center justify-center gap-2 py-2 text-sm text-gray-600'>
               <IoNotificationsOutline className='w-5 h-5' />
               <span>Notifications</span>
-            </div>
+            </div> */}
           </div>
 
           {/* User Profile Section (if needed) */}

@@ -32,19 +32,19 @@ const NavBar = () => {
             <Link
               key={item.id}
               href={item.href}
-              className={`flex flex-col items-center gap-1.5 px-8 py-3 rounded-xl transition-all duration-300 ease-out 
+              className={`flex flex-col cursor-pointer items-center gap-1.5 px-8 py-3 rounded-xl transition-all duration-300 ease-out 
               hover:bg-indigo-50 hover:-translate-y-0.5 w-[75px] group ${
               isActive ? 'bg-indigo-100' : ''
               }`}
             >
-              <div className={`min-w-7 min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
+              <div className={`min-w-7 cursor-pointer min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
                 isActive 
                   ? 'bg-indigo-500 text-white scale-110' 
                   : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200'
               }`}>
                 <IconComponent size={15} />
               </div>
-              <span className={`text-[14px] font-medium transition-colors duration-300 ${
+              <span className={`text-[14px] cursor-pointer font-medium transition-colors duration-300 ${
                 isActive 
                   ? 'text-indigo-600 font-semibold' 
                   : 'text-slate-500 group-hover:text-slate-700'

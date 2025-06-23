@@ -94,7 +94,7 @@ const HospitalCard = () => {
         <button className="max-w-[215px] h-[70px] flex items-center 
         justify-center gap-2 bg-[#D9D9D9] border border-gray-300 rounded-[5px] 
         text-[#2C2C2C] hover:bg-gray-100 transition w-full">
-        <SlidersHorizontal size={18} className='text-[#4203a9] text-[20px] w-[16px] h-[18px]' /> 
+        <SlidersHorizontal size={18} className='text-[#4203a9] cursor-pointer text-[20px] w-[16px] h-[18px]' /> 
         Advanced Filters
         </button>
       </div>
