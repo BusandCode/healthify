@@ -60,7 +60,7 @@ function FAQ() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-8 px-4 sm:py-16">
+    <div className="w-full max-w-4xl mx-auto py-8 px-2 lg:px-4 sm:py-16">
       <h2 className="text-2xl sm:text-3xl font-bold text-[#4203a9] text-center mb-8 sm:mb-12">
         Frequently Asked Questions
       </h2>
