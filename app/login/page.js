@@ -49,11 +49,11 @@ const Page = () => {
       <div className='flex flex-1 flex-col min-h-screen justify-center items-center px-4 sm:px-6 lg:px-8 py-8'>
         <div className='w-full max-w-[400px]'>
           {/* Mobile Header - Only visible on mobile */}
-          <div className='lg:hidden text-center mb-8'>
+          {/* <div className='lg:hidden text-center mb-8'>
             <h1 className='text-[28px] sm:text-[32px] text-[#4203a9] font-bold mb-2'>
               Healthify
             </h1>
-          </div>
+          </div> */}
 
           {/* Login Header */}
           <h2 className='text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#4203a9] mb-6 text-center lg:text-left'>

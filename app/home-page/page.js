@@ -158,8 +158,8 @@ export default function HomePage() {
               <h1 className='font-semibold text-[24px] sm:text-[32px] md:text-[40px] lg:text-[55px] lg:max-w-[800px] text-[#4203a9] leading-tight px-2 sm:px-0'>
                 Your Path to Affordable Healthcare Starts Here
               </h1>
-              <p className='text-[#333333] text-[16px] sm:text-[18px] lg:text-[20px] font-medium max-w-[600px] leading-relaxed mt-3 sm:mt-4 px-2 sm:px-0'>
-                Easily locate providers, view services, and schedule your next visit with confidence
+              <p className='text-[#333333] text-[16px] sm:text-[18px] lg:text-[20px] font-medium max-w-[600px] mx-auto lg:mx-0 leading-relaxed mt-3 sm:mt-4 px-2 sm:px-0'>
+                Easily locate providers, view services, and schedule your next visit with confidence.
               </p>
             </div>
             <div className="flex-shrink-0 mt-4 lg:mt-0">
@@ -168,7 +168,7 @@ export default function HomePage() {
                 width={300} 
                 height={300} 
                 alt='Doctor Image'
-                className="sm:w-[180px] sm:h-[180px] lg:w-[250px] lg:h-[300px]"
+                className="sm:w-[180px] sm:h-[180px] md:w-[250px] md:h-[350px]"
               />
             </div>
           </div>
@@ -193,8 +193,8 @@ export default function HomePage() {
               </div>
 
               {/* Right side - Content */}
-              <div className="space-y-4 sm:space-y-6 order-1 lg:order-2 px-2 sm:px-0">
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#4203a9] mb-4 sm:mb-8 text-center lg:text-left">
+              <div className="flex justify-center items-center lg:items-start flex-col space-y-4 sm:space-y-6 order-1 lg:order-2 px-2 sm:px-0">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#4203a9] mb-4 sm:mb-8 text-center">
                   Why Choose Our Platform?
                 </h2>
                 
