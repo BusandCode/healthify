@@ -111,7 +111,7 @@ const Header = () => {
           <div className='pt-4 border-t border-gray-200'>
             <div className='text-center'>
               <button className='text-[#4203a9] hover:text-[#4203a9]/80 font-medium text-sm transition-colors duration-200'>
-                Sign In / Register
+                Log Out
               </button>
             </div>
           </div>

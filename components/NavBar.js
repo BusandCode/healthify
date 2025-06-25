@@ -57,12 +57,17 @@ const NavBar = () => {
       </div>
 
       {/* Profile Section - positioned at bottom */}
-      <Link
+      {/* <Link
         href="/profile"
-        className="mt-auto mb-6 w-8 h-8 rounded-full bg-gradient-to-br from-slate-200 to-slate-300 border-2 border-slate-100 hover:scale-105 transition-transform duration-300 flex items-center justify-center"
+        className="mt-auto mb-6 w-12 h-12 rounded-full
+        bg-gradient-to-br from-slate-200 to-slate-300 border-2
+        border-slate-100 hover:scale-105 transition-transform duration-300 flex items-center justify-center"
       >
-        <User size={16} className="text-slate-600" />
-      </Link>
+        <User size={25} className="text-slate-600" />
+      </Link> */}
+      <button className='mt-auto mb-10 w-3/4 bg-[#4203a9] cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-[#4203a9]/90 transition-colors duration-200'>
+        Log out
+      </button>
     </nav>
   );
 };
