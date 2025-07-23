@@ -1,13 +1,13 @@
-import { Sora } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import "./globals.css";
 
 
 
 
-const sora = Sora({
+const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-sora',
+  variable: '--font-poppins',
   weight: ['400', '500', '600', '700']
 })
 
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-         className={`${sora.className}`}
+         className={`${poppins.className}`}
       >
         
         {children}
