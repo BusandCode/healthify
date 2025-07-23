@@ -39,14 +39,14 @@ const NavBar = () => {
             >
               <div className={`min-w-7 cursor-pointer min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
                 isActive 
-                  ? 'bg-indigo-500 text-white scale-110' 
+                  ? 'bg-[#4203a9] text-white scale-110' 
                   : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200'
               }`}>
                 <IconComponent size={15} />
               </div>
               <span className={`text-[14px] cursor-pointer font-medium transition-colors duration-300 ${
                 isActive 
-                  ? 'text-indigo-600 font-semibold' 
+                ? 'text-[#4203a9] font-semibold' 
                   : 'text-slate-500 group-hover:text-slate-700'
               }`}>
                 {item.label}

@@ -95,7 +95,7 @@ const hospitals = [
   },
   {
     id: 2,
-    name: 'Lagos Teaching Hospital',
+    name: 'Lagos State Teaching Hospital',
     image: '/lagos.jpg',
     distance: '5.2 miles',
     fee: '$8.00 - $20.00',
