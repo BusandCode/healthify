@@ -84,7 +84,7 @@ function FAQ() {
                     <span className="text-white text-xs sm:text-sm font-bold">−</span>
                   </div>
                 ) : (
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#4203a9] rounded-full flex items-center justify-center">
                     <span className="text-white text-xs sm:text-sm font-bold">+</span>
                   </div>
                 )}
@@ -108,32 +108,32 @@ function FAQ() {
 export default function HomePage() {
   const services = [
     {
-      icon: <FaUserMd className="text-2xl sm:text-3xl text-blue-600" />,
+      icon: <FaUserMd className="text-2xl sm:text-3xl text-[#4203a9]" />,
       title: "Find Qualified Doctors",
       description: "Connect with board-certified physicians and specialists in your area. View their credentials, experience, and patient reviews to make informed healthcare decisions."
     },
     {
-      icon: <FaHospital className="text-2xl sm:text-3xl text-blue-600" />,
+      icon: <FaHospital className="text-2xl sm:text-3xl text-[#4203a9]" />,
       title: "Locate Top Hospitals",
       description: "Discover accredited hospitals and medical centers near you. Compare facilities, services offered, and quality ratings to choose the best care for your needs."
     },
     {
-      icon: <FaCalendarAlt className="text-2xl sm:text-3xl text-blue-600" />,
+      icon: <FaCalendarAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
       title: "Easy Appointment Booking",
       description: "Schedule appointments instantly with real-time availability. Get confirmation notifications and reminders to ensure you never miss important medical visits."
     },
     {
-      icon: <FaShieldAlt className="text-2xl sm:text-3xl text-blue-600" />,
+      icon: <FaShieldAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
       title: "Insurance Verification",
       description: "Check which providers accept your insurance plan before booking. Avoid surprise bills and ensure your coverage is accepted at your chosen healthcare facility."
     },
     {
-      icon: <FaMapMarkerAlt className="text-2xl sm:text-3xl text-blue-600" />,
+      icon: <FaMapMarkerAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
       title: "Location-Based Search",
       description: "Find healthcare providers by distance, neighborhood, or specific address. Get directions, parking information, and public transit options for easy access."
     },
     {
-      icon: <FaHeartbeat className="text-2xl sm:text-3xl text-blue-600" />,
+      icon: <FaHeartbeat className="text-2xl sm:text-3xl text-[#4203a9]" />,
       title: "Emergency Care Locator",
       description: "Quickly locate the nearest emergency rooms and urgent care centers. Access critical information like wait times and specialized emergency services available."
     }

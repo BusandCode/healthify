@@ -294,7 +294,7 @@ const HospitalCard = () => {
                   <span className="text-sm text-gray-600">({hospital.reviews})</span>
                 </div>
                 
-                <button className="w-full bg-blue-600 cursor-pointer text-white text-sm sm:text-base py-2.5 sm:py-3 rounded-lg hover:bg-blue-700 transition font-medium mt-4">
+                <button className="w-full bg-[#4203a9] cursor-pointer text-white text-sm sm:text-base py-2.5 sm:py-3 rounded-lg hover:bg-[#4303a9dc] transition font-medium mt-4">
                   Book Appointment
                 </button>
               </div>

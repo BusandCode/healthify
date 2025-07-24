@@ -22,9 +22,9 @@ const Header = () => {
         {/* Desktop Navigation */}
         <div className='hidden lg:flex gap-10 items-center cursor-pointer'>
           <IoNotificationsOutline className='w-[50px] h-[50px] rounded-[60px] text-gray-500 bg-[#F5F5F5] p-3'/>
-          <button className='bg-[#4203a9] cursor-pointer max-w-[250px] h-[62px] p-[15px] rounded-[5px] text-white text-[20px] font-medium'>
+          <Link href="/explore" className='bg-[#4203a9] cursor-pointer max-w-[250px] h-[62px] p-[15px] rounded-[5px] text-white text-[20px] font-medium'>
             Book Appointment
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -97,9 +97,9 @@ const Header = () => {
 
           {/* Mobile Actions */}
           <div className='pt-4 border-t border-gray-200 space-y-3'>
-            <button className='w-full bg-[#4203a9] cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-[#4203a9]/90 transition-colors duration-200'>
+            <Link href="/explore" className='w-full bg-[#4203a9] cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-[#4203a9]/90 transition-colors duration-200'>
               Book Appointment
-            </button>
+            </Link>
             
             {/* <div className='flex items-center justify-center gap-2 py-2 text-sm text-gray-600'>
               <IoNotificationsOutline className='w-5 h-5' />
