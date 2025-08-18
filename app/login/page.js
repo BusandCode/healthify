@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import Link from 'next/link'
+import { handleGoogleSignIn } from "./actions/auth"
 
 const LoginPage = () => {
   return (
@@ -20,15 +21,15 @@ const LoginPage = () => {
             Welcome Back
           </h2>
 
-          {/* Form */}
+          {/* Email/Password Form */}
           <form className='flex flex-col gap-4'>
             {/* Email */}
             <div className='flex flex-col'>
               <input 
                 type="email" 
-                name="email"
                 className='bg-gray-200/30 text-gray-500 w-full h-[48px] sm:h-[50px] border-[2px] border-gray-500/30 px-3 py-2 rounded-md outline-0 focus:border-[#4203a9] transition-colors text-[14px] sm:text-[16px]'
                 placeholder='Email'
+                required
               />
             </div>
 
@@ -36,9 +37,9 @@ const LoginPage = () => {
             <div className='flex flex-col'>
               <input 
                 type="password" 
-                name="password"
                 className='bg-gray-200/30 text-gray-500 w-full h-[48px] sm:h-[55px] border-[2px] border-gray-500/30 px-3 py-2 rounded-md outline-0 focus:border-[#4203a9] transition-colors text-[14px] sm:text-[16px]'
                 placeholder='Password'
+                required
               />
             </div>
 
@@ -51,7 +52,7 @@ const LoginPage = () => {
 
             {/* Login Button */}
             <button 
-              type="submit"
+              type="button"
               className='mt-2 bg-[#4203a9] hover:bg-[#5a1bb8] active:bg-[#3a0287] transition-colors duration-300 text-white w-full h-[48px] sm:h-[55px] flex justify-center items-center rounded-md touch-manipulation'
             >
               <span className='text-white text-[16px] sm:text-[18px] font-semibold'>
@@ -81,9 +82,9 @@ const LoginPage = () => {
           </div>
 
           {/* Google Sign In Button */}
-          <div>
+          <form action={handleGoogleSignIn}>
             <button 
-              type="button"
+              type="submit"
               className='bg-white border-[2px] border-gray-300 text-gray-700 w-full h-[48px] sm:h-[55px] rounded-md text-[14px] sm:text-[16px] cursor-pointer flex justify-center items-center hover:bg-gray-50 active:bg-gray-100 transition-colors duration-300 touch-manipulation'
             >
               <svg className='w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 flex-shrink-0' viewBox='0 0 24 24'>
@@ -94,7 +95,7 @@ const LoginPage = () => {
               </svg>
               <span className='truncate'>Continue with Google</span>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </section>
