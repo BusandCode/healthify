@@ -9,10 +9,10 @@ const NavBar = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { id: 'Home', label: 'Home', icon: Home, href: '/home-page' },
-    { id: 'Explore', label: 'Explore', icon: Search, href: '/explore' },
-    { id: 'Bookings', label: 'Bookings', icon: Calendar, href: '/bookings' },
-    { id: 'Saved', label: 'Saved', icon: Bookmark, href: '/saved' },
+    { id: 'Home', label: 'Home', icon: Home, href: '/dashboard/home-page' },
+    { id: 'Explore', label: 'Explore', icon: Search, href: '/dashboard/explore' },
+    { id: 'Bookings', label: 'Bookings', icon: Calendar, href: '/dashboard/bookings' },
+    { id: 'Saved', label: 'Saved', icon: Bookmark, href: '/dashboard/saved' },
   ];
 
   return (
