@@ -75,16 +75,16 @@ const Header = () => {
         <div className='p-4 space-y-4'>
           {/* Navigation Links */}
           <nav className='space-y-3'>
-            <Link href="/home-page" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link href="/dashboard/home-page" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
               Home
             </Link>
-            <Link href="/explore" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link href="/dashboard/explore" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
               Explore
             </Link>
-            <Link href="/bookings" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link href="/dashboard/bookings" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
               Bookings
             </Link>
-            <Link href="/services" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link href="/dashboard/services" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
               Services
             </Link>
             <Link href="#" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
