@@ -1,9 +1,24 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
-import { handleGoogleSignIn } from "./actions/auth"
+import { signIn } from '../actions/auth'
 
 const LoginPage = () => {
+  const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+
+  async function handleSubmit(formData: FormData) {
+    setLoading(true)
+    setError(null)
+    
+    const result = await signIn(formData)
+    
+    if (result?.error) {
+      setError(result.error)
+      setLoading(false)
+    }
+  }
+
   return (
     <section className='flex flex-col lg:flex-row min-h-screen'>
       {/* Welcome Section - Hidden on mobile, visible on larger screens */}
@@ -21,25 +36,37 @@ const LoginPage = () => {
             Welcome Back
           </h2>
 
+          {/* Error Message */}
+          {error && (
+            <div className='mb-4 p-3 bg-red-50 border border-red-200 rounded-md'>
+              <p className='text-red-600 text-sm'>{error}</p>
+            </div>
+          )}
+
           {/* Email/Password Form */}
-          <form className='flex flex-col gap-4'>
+          <form action={handleSubmit} className='flex flex-col gap-4'>
             {/* Email */}
             <div className='flex flex-col'>
               <input 
-                type="email" 
-                className='bg-gray-200/30 text-gray-500 w-full h-[48px] sm:h-[50px] border-[2px] border-gray-500/30 px-3 py-2 rounded-md outline-0 focus:border-[#4203a9] transition-colors text-[14px] sm:text-[16px]'
-                placeholder='Email'
+                type="email"
+                name="email"
                 required
+                disabled={loading}
+                className='bg-gray-200/30 text-gray-500 w-full h-[48px] sm:h-[50px] border-[2px] border-gray-500/30 px-3 py-2 rounded-md outline-0 focus:border-[#4203a9] transition-colors text-[14px] sm:text-[16px] disabled:opacity-50'
+                placeholder='Email'
               />
             </div>
 
             {/* Password */}
             <div className='flex flex-col'>
               <input 
-                type="password" 
-                className='bg-gray-200/30 text-gray-500 w-full h-[48px] sm:h-[55px] border-[2px] border-gray-500/30 px-3 py-2 rounded-md outline-0 focus:border-[#4203a9] transition-colors text-[14px] sm:text-[16px]'
-                placeholder='Password'
+                type="password"
+                name="password"
                 required
+                minLength={6}
+                disabled={loading}
+                className='bg-gray-200/30 text-gray-500 w-full h-[48px] sm:h-[55px] border-[2px] border-gray-500/30 px-3 py-2 rounded-md outline-0 focus:border-[#4203a9] transition-colors text-[14px] sm:text-[16px] disabled:opacity-50'
+                placeholder='Password'
               />
             </div>
 
@@ -52,11 +79,12 @@ const LoginPage = () => {
 
             {/* Login Button */}
             <button 
-              type="button"
-              className='mt-2 bg-[#4203a9] hover:bg-[#5a1bb8] active:bg-[#3a0287] transition-colors duration-300 text-white w-full h-[48px] sm:h-[55px] flex justify-center items-center rounded-md touch-manipulation'
+              type="submit"
+              disabled={loading}
+              className='mt-2 bg-[#4203a9] hover:bg-[#5a1bb8] active:bg-[#3a0287] transition-colors duration-300 text-white w-full h-[48px] sm:h-[55px] flex justify-center items-center rounded-md touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed'
             >
               <span className='text-white text-[16px] sm:text-[18px] font-semibold'>
-                Log In
+                {loading ? 'Logging in...' : 'Log In'}
               </span>
             </button>
           </form>
@@ -82,10 +110,11 @@ const LoginPage = () => {
           </div>
 
           {/* Google Sign In Button */}
-          <form action={handleGoogleSignIn}>
+          <div>
             <button 
-              type="submit"
-              className='bg-white border-[2px] border-gray-300 text-gray-700 w-full h-[48px] sm:h-[55px] rounded-md text-[14px] sm:text-[16px] cursor-pointer flex justify-center items-center hover:bg-gray-50 active:bg-gray-100 transition-colors duration-300 touch-manipulation'
+              type="button"
+              disabled={loading}
+              className='bg-white border-[2px] border-gray-300 text-gray-700 w-full h-[48px] sm:h-[55px] rounded-md text-[14px] sm:text-[16px] cursor-pointer flex justify-center items-center hover:bg-gray-50 active:bg-gray-100 transition-colors duration-300 touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed'
             >
               <svg className='w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 flex-shrink-0' viewBox='0 0 24 24'>
                 <path fill='#4285F4' d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/>
@@ -95,7 +124,7 @@ const LoginPage = () => {
               </svg>
               <span className='truncate'>Continue with Google</span>
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </section>

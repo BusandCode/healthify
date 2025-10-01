@@ -55,7 +55,7 @@ function FAQ() {
     }
   ];
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? -1 : index);
   };
 
