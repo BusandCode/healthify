@@ -185,7 +185,7 @@ const SignupPage = () => {
             <button 
               type="submit"
               disabled={loading}
-              className='mt-1 bg-[#4203a9] hover:bg-[#5a1bb8] transition-colors duration-300 text-white w-full h-[50px] flex justify-center items-center rounded-md disabled:opacity-50 disabled:cursor-not-allowed'
+              className='mt-1 bg-[#4203a9] cursor-pointer hover:bg-[#5a1bb8] transition-colors duration-300 text-white w-full h-[50px] flex justify-center items-center rounded-md disabled:opacity-50 disabled:cursor-not-allowed'
             >
               {loading ? (
                 <>

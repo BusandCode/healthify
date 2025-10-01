@@ -128,7 +128,7 @@ const LoginPage = () => {
             <button 
               type="submit"
               disabled={loading}
-              className='mt-2 bg-[#4203a9] hover:bg-[#5a1bb8] active:bg-[#3a0287] transition-colors duration-300 text-white w-full h-[48px] sm:h-[55px] flex justify-center items-center rounded-md touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed'
+              className='mt-2 bg-[#4203a9] cursor-pointer hover:bg-[#5a1bb8] active:bg-[#3a0287] transition-colors duration-300 text-white w-full h-[48px] sm:h-[55px] flex justify-center items-center rounded-md touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed'
             >
               {loading ? (
                 <>

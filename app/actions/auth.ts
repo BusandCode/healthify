@@ -14,12 +14,11 @@ export async function signUp(formData: FormData) {
   const firstName = formData.get('firstName') as string
   const lastName = formData.get('lastName') as string
 
-  // Validate passwords match
+ 
   if (password !== confirmPassword) {
     return { error: 'Passwords do not match' }
   }
 
-  // Validate password length
   if (password.length < 6) {
     return { error: 'Password must be at least 6 characters' }
   }
