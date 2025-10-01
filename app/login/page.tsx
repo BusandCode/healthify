@@ -33,10 +33,20 @@ const LoginPage = () => {
   async function handleGoogleSignIn() {
     setGoogleLoading(true)
     setError(null)
-    // Add your Google sign in logic here
-    // For now, just simulating:
-    // const result = await signInWithGoogle()
-    // setGoogleLoading(false)
+    
+    try {
+      const result = await signInWithGoogle()
+      
+      if (result?.error) {
+        setError(result.error)
+        setGoogleLoading(false)
+      }
+      // If successful, redirect will happen automatically
+    } catch (err) {
+      setError('Failed to sign in with Google. Please try again.')
+      setGoogleLoading(false)
+      console.error('Google sign in error:', err)
+    }
   }
 
   return (

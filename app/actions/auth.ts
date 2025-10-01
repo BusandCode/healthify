@@ -36,6 +36,10 @@ export async function signUp(formData: FormData) {
   })
 
   if (error) {
+    // Provide better error message for existing users
+    if (error.message.includes('already registered') || error.message.includes('User already registered')) {
+      return { error: 'An account with this email already exists. Please log in instead.' }
+    }
     return { error: error.message }
   }
 
