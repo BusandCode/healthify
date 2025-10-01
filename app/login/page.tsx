@@ -74,7 +74,7 @@ const LoginPage = () => {
           )}
 
           {/* Email/Password Form */}
-          <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+          <form onSubmit={handleSubmit} className='flex flex-col gap-4 max-w-[500px]'>
             {/* Email */}
             <div className='flex flex-col'>
               <input 
