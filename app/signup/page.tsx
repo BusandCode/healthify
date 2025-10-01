@@ -86,7 +86,7 @@ const SignupPage = () => {
           {/* Form */}
           <form onSubmit={handleSubmit} className='flex flex-col gap-3 w-full max-w-[400px]'>
             {/* First Name and Surname Row */}
-            <div className='flex gap-3'>
+            <div className='flex lg:flex-c gap-3'>
               <div className='flex flex-col flex-1'>
                 <input 
                   type="text" 
