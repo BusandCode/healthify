@@ -4,12 +4,25 @@ import React, { useState } from 'react'
 import { IoNotificationsOutline } from "react-icons/io5";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from 'next/link';
+import { signOut } from '@/app/actions/auth';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    setIsMobileMenuOpen(false); // Close mobile menu
+    try {
+      await signOut();
+    } catch (error) {
+      console.error('Logout error:', error);
+      setIsLoggingOut(false);
+    }
   };
 
   return (
@@ -75,29 +88,57 @@ const Header = () => {
         <div className='p-4 space-y-4'>
           {/* Navigation Links */}
           <nav className='space-y-3'>
-            <Link href="/dashboard/home-page" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link 
+              href="/dashboard/home-page" 
+              onClick={toggleMobileMenu}
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+            >
               Home
             </Link>
-            <Link href="/dashboard/explore" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link 
+              href="/dashboard/explore" 
+              onClick={toggleMobileMenu}
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+            >
               Explore
             </Link>
-            <Link href="/dashboard/bookings" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link 
+              href="/dashboard/bookings" 
+              onClick={toggleMobileMenu}
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+            >
               Bookings
             </Link>
-            <Link href="/dashboard/services" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link 
+              href="/dashboard/services" 
+              onClick={toggleMobileMenu}
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+            >
               Services
             </Link>
-            <Link href="#" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link 
+              href="#" 
+              onClick={toggleMobileMenu}
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+            >
               About Us
             </Link>
-            <Link href="#" className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'>
+            <Link 
+              href="#" 
+              onClick={toggleMobileMenu}
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+            >
               Contact
             </Link>
           </nav>
 
           {/* Mobile Actions */}
           <div className='pt-4 border-t border-gray-200 space-y-3'>
-            <Link href="/explore" className='w-full bg-[#4203a9] cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-[#4203a9]/90 transition-colors duration-200'>
+            <Link 
+              href="/explore" 
+              onClick={toggleMobileMenu}
+              className='block w-full bg-[#4203a9] cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-[#4203a9]/90 transition-colors duration-200 text-center'
+            >
               Book Appointment
             </Link>
             
@@ -110,8 +151,12 @@ const Header = () => {
           {/* User Profile Section (if needed) */}
           <div className='pt-4 border-t border-gray-200'>
             <div className='text-center'>
-              <button className='text-[#4203a9] hover:text-[#4203a9]/80 font-medium text-sm transition-colors duration-200'>
-                Log Out
+              <button 
+                onClick={handleLogout}
+                disabled={isLoggingOut}
+                className='text-[#4203a9] hover:text-[#4203a9]/80 font-medium text-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+              >
+                {isLoggingOut ? 'Logging Out...' : 'Log Out'}
               </button>
             </div>
           </div>
