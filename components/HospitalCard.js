@@ -171,7 +171,7 @@ const HospitalCard = () => {
         </div>
 
       {/* Hospital Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 px-4 sm:gap-6 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 px-4 sm:gap-6 items-center justify-center">
         {hospitals.map((hospital) => (
           <div key={hospital.id} className="bg-white w-full max-w-[340px] sm:max-w-[320px] lg:max-w-[350px] rounded-2xl sm:rounded-3xl shadow-md border border-gray-200 overflow-hidden">
             <div className="p-3 sm:p-4 lg:p-5">
