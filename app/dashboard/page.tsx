@@ -148,7 +148,7 @@ export default function HomePage() {
       <NavBar />
 
       {/* Main Content */}
-      <main className="lg:ml-[170px] pt-[80px] sm:pt-[100px]">
+      <main className="lg:ml-[170px] pt-[80px] sm:pt-[100px] mb-20 lg:mb-0">
         {/* Hero Section */}
         <div className='flex flex-col items-start justify-center gap-6 sm:gap-10 mx-4 sm:mx-6 lg:mx-10 py-6 sm:py-10'>
 

@@ -87,7 +87,7 @@ const Header = () => {
         {/* Mobile Menu Content */}
         <div className='p-4 space-y-4'>
           {/* Navigation Links */}
-          <nav className='space-y-3'>
+          {/* <nav className='space-y-3'>
             <Link 
               href="/dashboard/home-page" 
               onClick={toggleMobileMenu}
@@ -130,7 +130,7 @@ const Header = () => {
             >
               Contact
             </Link>
-          </nav>
+          </nav> */}
 
           {/* Mobile Actions */}
           <div className='pt-4 border-t border-gray-200 space-y-3'>

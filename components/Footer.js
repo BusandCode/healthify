@@ -37,7 +37,7 @@ const Footer = () => {
             <div className="w-4 h-4 rounded-full border border-white/40 flex items-center justify-center mr-2">
               <span className="text-xs">©</span>
             </div>
-            2024 Healthify
+            2025 Healthify
           </div>
 
           {/* Legal Links */}
