@@ -45,7 +45,7 @@ const Booking = () => {
               Consultation Session at <span className='text-[#4203a9] font-semibold'>Ikeja General Hospital</span>
             </h1>
             <article className='flex flex-col items-start gap-3'>
-              <div className='flex lg:flex-row flex-col items-center gap-[15px]'>
+              <div className='flex lg:flex-row flex-col items-start lg:items-center gap-[15px]'>
                 {/* time */}
                 <div className='flex items-center gap-1'>
                   <Calendar className='w-5 h-5 lg:w-8 lg:h-8 text-[#4203a9]' />
@@ -56,7 +56,7 @@ const Booking = () => {
                   <span className='text-gray-700 g:text-[20px] text-[18px]'>08:00 am</span>
                 </div>
               </div>
-              <div className='flex lg:flex-row flex-col items-center gap-[15px]'>
+              <div className='flex items-center gap-[15px]'>
                 <button className='lg:w-[232px] flex items-center text-[18px] lg:text-[20px] h-[44px] p-[10px] bg-[#4203a9] text-white
                  rounded-[5px]'>Reschedule Session</button>
                  <h1 className='text-[#ED0505] text-[18px] lg:text-[20px]'>Cancel</h1>
