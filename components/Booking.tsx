@@ -45,7 +45,7 @@ const Booking = () => {
               Consultation Session at <span className='text-[#4203a9] font-semibold'>Ikeja General Hospital</span>
             </h1>
             <article className='flex flex-col items-start gap-3'>
-              <div className='flex lg:flex-row flex-col items-start lg:items-center gap-[15px]'>
+              <div className='flex lg:flex-row flex-col items-start lg:items-center gap-1 lg:gap-[15px]'>
                 {/* time */}
                 <div className='flex items-center gap-1'>
                   <Calendar className='w-5 h-5 lg:w-8 lg:h-8 text-[#4203a9]' />
