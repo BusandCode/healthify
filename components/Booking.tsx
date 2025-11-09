@@ -8,7 +8,7 @@ const Booking = () => {
   return (
     <div className="px-4 lg:px-6 py-4">
       <div>
-        <h1 className='text-[#4203a9] text-[32px] md:text-[40px] font-semibold'>Bookings</h1>
+        <h1 className='text-blue-800 text-[32px] md:text-[40px] font-semibold'>Bookings</h1>
 
         {/* Tabs */}
         <div className='flex gap-6 mt-4 border-b-2 border-gray-200'>
@@ -42,17 +42,17 @@ const Booking = () => {
           {activeTab === 'upcoming' && 
         <div className='border border-gray-200 rounded-[20px] max-w-[603px] p-6'>
             <h1 className='font-normal lg:text-[20px] text-[18px] mb-4'>
-              Consultation Session at <span className='text-[#4203a9] font-semibold'>Ikeja General Hospital</span>
+              Consultation Session at <span className='text-blue-800 font-semibold'>Ikeja General Hospital</span>
             </h1>
             <article className='flex flex-col items-start gap-3'>
               <div className='flex lg:flex-row flex-col items-start lg:items-center gap-1 lg:gap-[15px]'>
                 {/* time */}
                 <div className='flex items-center gap-1'>
-                  <Calendar className='w-5 h-5 lg:w-8 lg:h-8 text-[#4203a9]' />
+                  <Calendar className='w-5 h-5 lg:w-8 lg:h-8 text-blue-800' />
                   <span className='text-gray-700 g:text-[20px] text-[18px]'>January 30th, 2025</span>
                 </div>
                 <div className='flex items-center gap-1'>
-                  <Calendar className='w-5 h-5 lg:w-[26px] lg:h-[26px] text-[#4203a9]' />
+                  <Calendar className='w-5 h-5 lg:w-[26px] lg:h-[26px] text-blue-800' />
                   <span className='text-gray-700 g:text-[20px] text-[18px]'>08:00 am</span>
                 </div>
               </div>
