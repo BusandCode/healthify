@@ -219,7 +219,7 @@ const HospitalCard = () => {
                   <span className="text-sm text-gray-600">({hospital.reviews})</span>
                 </div>
                 
-                <button className="w-full bg-blue-800 cursor-pointer text-white text-sm sm:text-base py-2.5 sm:py-3 rounded-lg hover:bg-[#4303a9dc] transition font-medium mt-4">
+                <button className="w-full bg-blue-800 cursor-pointer text-white text-sm sm:text-base py-2.5 sm:py-3 rounded-lg hover:bg-blue-900 transition font-medium mt-4">
                   Book Appointment
                 </button>
               </div>
@@ -416,7 +416,7 @@ const HospitalCard = () => {
               </button>
               <button
                 onClick={applyFilters}
-                className="flex-1 py-3 px-4 bg-blue-800 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+                className="flex-1 py-3 px-4 bg-blue-800 text-white rounded-lg font-medium hover:bg-blue-900 transition"
               >
                 Apply Filter
               </button>

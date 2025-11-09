@@ -47,8 +47,8 @@ const NavBar = () => {
                 key={item.id}
                 href={item.href}
                 className={`flex flex-col cursor-pointer items-center gap-1.5 px-8 py-3 rounded-xl transition-all duration-300 ease-out 
-                 hover:bg-indigo-50 hover:-translate-y-0.5 w-[75px] group ${
-                isActive ? 'bg-indigo-100' : ''
+                 hover:bg-blue-700 hover:-translate-y-0.5 w-[75px] group ${
+                isActive ? 'bg-blue-800' : ''
                 }`}
               >
                 <div className={`min-w-7 cursor-pointer min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
@@ -83,7 +83,7 @@ const NavBar = () => {
         <button 
           onClick={handleLogout}
           disabled={isLoggingOut}
-          className='mb-10 w-3/4 bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-800/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+          className='mb-10 w-3/4 bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-900/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isLoggingOut ? 'Logging out...' : 'Log out'}
         </button>
@@ -101,7 +101,7 @@ const NavBar = () => {
               <Link
                 key={item.id}
                 href={item.href}
-                className="flex flex-col cursor-pointer items-center gap-1.5 px-4 py-2 rounded-xl transition-all duration-300 ease-out hover:bg-indigo-50"
+                className="flex flex-col cursor-pointer items-center gap-1.5 px-4 py-2 rounded-xl transition-all duration-300 ease-out hover:bg-blue-700"
               >
                 <div className={`min-w-7 cursor-pointer min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
                   isActive 
