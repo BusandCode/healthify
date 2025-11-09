@@ -61,7 +61,7 @@ function FAQ() {
 
   return (
     <div className="w-full max-w-4xl mx-auto py-8 px-2 lg:px-4 sm:py-16">
-      <h2 className="text-2xl sm:text-3xl font-bold text-[#4203a9] text-center mb-8 sm:mb-12">
+      <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 text-center mb-8 sm:mb-12">
         Frequently Asked Questions
       </h2>
       
@@ -108,32 +108,32 @@ function FAQ() {
 export default function HomePage() {
   const services = [
     {
-      icon: <FaUserMd className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaUserMd className="text-2xl sm:text-3xl text-blue-800" />,
       title: "Find Qualified Doctors",
       description: "Connect with board-certified physicians and specialists in your area. View their credentials, experience, and patient reviews to make informed healthcare decisions."
     },
     {
-      icon: <FaHospital className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaHospital className="text-2xl sm:text-3xl text-blue-800" />,
       title: "Locate Top Hospitals",
       description: "Discover accredited hospitals and medical centers near you. Compare facilities, services offered, and quality ratings to choose the best care for your needs."
     },
     {
-      icon: <FaCalendarAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaCalendarAlt className="text-2xl sm:text-3xl text-blue-800" />,
       title: "Easy Appointment Booking",
       description: "Schedule appointments instantly with real-time availability. Get confirmation notifications and reminders to ensure you never miss important medical visits."
     },
     {
-      icon: <FaShieldAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaShieldAlt className="text-2xl sm:text-3xl text-blue-800" />,
       title: "Insurance Verification",
       description: "Check which providers accept your insurance plan before booking. Avoid surprise bills and ensure your coverage is accepted at your chosen healthcare facility."
     },
     {
-      icon: <FaMapMarkerAlt className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaMapMarkerAlt className="text-2xl sm:text-3xl text-blue-800" />,
       title: "Location-Based Search",
       description: "Find healthcare providers by distance, neighborhood, or specific address. Get directions, parking information, and public transit options for easy access."
     },
     {
-      icon: <FaHeartbeat className="text-2xl sm:text-3xl text-[#4203a9]" />,
+      icon: <FaHeartbeat className="text-2xl sm:text-3xl text-blue-800" />,
       title: "Emergency Care Locator",
       description: "Quickly locate the nearest emergency rooms and urgent care centers. Access critical information like wait times and specialized emergency services available."
     }
@@ -155,7 +155,7 @@ export default function HomePage() {
           {/* Description */}
           <div className='flex justify-center items-center gap-4 sm:gap-1 flex-col lg:flex-row w-full'>
             <div className="text-center lg:text-left">
-              <h1 className='font-semibold text-[24px] sm:text-[32px] md:text-[40px] lg:text-[55px] lg:max-w-[800px] text-[#4203a9] leading-tight px-2 sm:px-0'>
+              <h1 className='font-semibold text-[24px] sm:text-[32px] md:text-[40px] lg:text-[55px] lg:max-w-[800px] text-blue-800 leading-tight px-2 sm:px-0'>
                 Your Path to Affordable Healthcare Starts Here
               </h1>
               <p className='text-[#333333] text-[16px] sm:text-[18px] lg:text-[20px] font-medium max-w-[600px] mx-auto lg:mx-0 leading-relaxed mt-3 sm:mt-4 px-2 sm:px-0'>
@@ -194,14 +194,14 @@ export default function HomePage() {
 
               {/* Right side - Content */}
               <div className="flex justify-center items-center lg:items-start flex-col space-y-4 sm:space-y-6 order-1 lg:order-2 px-2 sm:px-0">
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#4203a9] mb-4 sm:mb-8 text-center">
+                <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mb-4 sm:mb-8 text-center">
                   Why Choose Our Platform?
                 </h2>
                 
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                      <IoMdCheckmarkCircleOutline className="text-blue-800 text-lg sm:text-xl" />
                     </div>
                     <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Locate trusted doctors, clinics, and hospitals in your area
@@ -210,7 +210,7 @@ export default function HomePage() {
 
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                      <IoMdCheckmarkCircleOutline className="text-blue-800 text-lg sm:text-xl" />
                     </div>
                     <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Compare consultation fees and check accepted insurance plans
@@ -219,7 +219,7 @@ export default function HomePage() {
 
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                      <IoMdCheckmarkCircleOutline className="text-blue-800 text-lg sm:text-xl" />
                     </div>
                     <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Book appointments with reminders to ensure you never miss a visit
@@ -228,7 +228,7 @@ export default function HomePage() {
 
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                      <IoMdCheckmarkCircleOutline className="text-blue-800 text-lg sm:text-xl" />
                     </div>
                     <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Help improve healthcare by sharing your feedback
@@ -237,7 +237,7 @@ export default function HomePage() {
 
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <IoMdCheckmarkCircleOutline className="text-[#4203a9] text-lg sm:text-xl" />
+                      <IoMdCheckmarkCircleOutline className="text-blue-800 text-lg sm:text-xl" />
                     </div>
                     <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed">
                       Easily save hospitals for quick access to care in the future
@@ -250,7 +250,7 @@ export default function HomePage() {
 
           {/* Services Section Title */}
           <div className="w-full text-center mt-8 sm:mt-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#4203a9] mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">
               Our Healthcare Services
             </h2>
             <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">

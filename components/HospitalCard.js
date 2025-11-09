@@ -129,7 +129,7 @@ const HospitalCard = () => {
   return (
     <div>
     <div className="px-4 py-4 sm:py-6 max-w-7xl mx-auto">
-      <h1 className='font-semibold mb-8 lg:mb-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#4203a9] leading-tight'>
+      <h1 className='font-semibold mb-8 lg:mb-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-blue-800 leading-tight'>
         Find Healthcare Services
       </h1>
       
@@ -163,7 +163,7 @@ const HospitalCard = () => {
          justify-center gap-2 bg-[#D9D9D9] border border-gray-300 rounded-[5px] 
          text-[#2C2C2C] hover:bg-gray-100 transition w-full">
          <SlidersHorizontal size={18} className='text-blue-600 text-[20px] w-[16px] h-[18px]' /> 
-         {/* <SlidersHorizontal size={16} className='text-[#4203a9]' />  */}
+         {/* <SlidersHorizontal size={16} className='text-blue-800' />  */}
         <span className="sm:inline">Advanced Filters</span>
         {/* <span className="sm:hidden ">Filters</span> */}
          </button>

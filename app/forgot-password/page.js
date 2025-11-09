@@ -32,7 +32,7 @@ const ForgotPasswordPage = () => {
       <div className='flex max-w-fit mx-auto md:mx-0 flex-col min-h-screen justify-center items-center px-5'>
         <div className='flex justify-center items-start flex-col w-full max-w-[500px]'>
           {/* Header */}
-          <h2 className='text-[24px] md:text-[28px] font-semibold text-[#4203a9] mb-4'>
+          <h2 className='text-[24px] md:text-[28px] font-semibold text-blue-800 mb-4'>
             Forgot Password
           </h2>
           
@@ -71,7 +71,7 @@ const ForgotPasswordPage = () => {
               <span className='text-gray-600 text-[14px]'>
                 Remember your Password?{' '}
                 <Link href="/login"
-                  className='text-[#4203a9] font-medium hover:underline cursor-pointer'
+                  className='text-blue-800 font-medium hover:underline cursor-pointer'
                 >
                   Log In Here
                 </Link>

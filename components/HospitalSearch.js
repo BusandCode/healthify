@@ -85,7 +85,7 @@ const HospitalSearch = () => {
         </div>
 
         {/* Add more filters button */}
-        <button className="text-[#4203a9] hover:text-[#4203a9]/80 font-medium text-xs sm:text-sm transition-colors duration-200">
+        <button className="text-blue-800 hover:text-blue-800/80 font-medium text-xs sm:text-sm transition-colors duration-200">
           + Add more filters
         </button>
       </div>
@@ -99,7 +99,7 @@ const HospitalSearch = () => {
               <button
                 key={index}
                 onClick={() => setSearchQuery(term)}
-                className="text-[#4203a9] hover:text-[#4203a9]/80 hover:underline transition-colors duration-200 text-xs sm:text-sm bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded-md"
+                className="text-blue-800 hover:text-blue-800/80 hover:underline transition-colors duration-200 text-xs sm:text-sm bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded-md"
               >
                 {term}
               </button>
