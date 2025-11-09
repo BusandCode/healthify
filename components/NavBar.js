@@ -32,11 +32,11 @@ const NavBar = () => {
     <>
       {/* Desktop Navigation - Left Sidebar */}
       <nav className="hidden fixed left-0 top-[80px] bg-[#FAFAFA] shadow-xl 
-       backdrop-blur-sm border border-white/20 w-[200px] xl:w-[240px] min-h-[calc(100vh-80px)] 
+       backdrop-blur-sm border border-white/20 w-[170px] min-h-[calc(100vh-80px)] 
        lg:flex flex-col items-center z-40">
         
         {/* Navigation Items Container - positioned at top */}
-        <div className="flex flex-col items-center gap-6 pt-10 xl:pt-12">
+        <div className="flex flex-col items-center gap-6 pt-8">
           {navItems.slice(0, 4).map((item) => {
             const IconComponent = item.icon;
             const isActive = pathname === item.href || 
@@ -46,19 +46,19 @@ const NavBar = () => {
               <Link
                 key={item.id}
                 href={item.href}
-                className={`flex flex-col cursor-pointer items-center gap-2 px-6 py-3 xl:px-8 xl:py-4 rounded-xl transition-all duration-300 ease-out 
-                 hover:bg-indigo-50 hover:-translate-y-0.5 w-[90px] xl:w-[110px] group ${
+                className={`flex flex-col cursor-pointer items-center gap-1.5 px-8 py-3 rounded-xl transition-all duration-300 ease-out 
+                 hover:bg-indigo-50 hover:-translate-y-0.5 w-[75px] group ${
                 isActive ? 'bg-indigo-100' : ''
                 }`}
               >
-                <div className={`min-w-8 xl:min-w-9 cursor-pointer min-h-8 xl:min-h-9 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                <div className={`min-w-7 cursor-pointer min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
                   isActive 
                     ? 'bg-blue-800 text-white scale-110' 
                     : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200'
                 }`}>
-                  <IconComponent size={18} className="xl:w-5 xl:h-5" />
+                  <IconComponent size={15} />
                 </div>
-                <span className={`text-[14px] xl:text-[15px] cursor-pointer font-medium transition-colors duration-300 ${
+                <span className={`text-[14px] cursor-pointer font-medium transition-colors duration-300 ${
                   isActive 
                     ? 'text-blue-800 font-semibold' 
                     : 'text-slate-500 group-hover:text-slate-700'
@@ -73,17 +73,17 @@ const NavBar = () => {
         {/* Profile Section - positioned at bottom */}
         <Link
           href="/profile"
-          className="mt-auto mb-6 w-12 h-12 xl:w-14 xl:h-14 rounded-full
+          className="mt-auto mb-6 w-12 h-12 rounded-full
           bg-gradient-to-br from-slate-200 to-slate-300 border-2
           border-slate-100 hover:scale-105 transition-transform duration-300 flex items-center justify-center"
         >
-          <User size={25} className="text-slate-600 xl:w-7 xl:h-7" />
+          <User size={25} className="text-slate-600" />
         </Link>
         
         <button 
           onClick={handleLogout}
           disabled={isLoggingOut}
-          className='mb-10 w-3/4 bg-blue-800 cursor-pointer text-white py-3 px-4 xl:py-4 xl:text-[15px] rounded-md font-medium hover:bg-blue-900/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+          className='mb-10 w-3/4 bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-800/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isLoggingOut ? 'Logging out...' : 'Log out'}
         </button>
