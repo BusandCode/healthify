@@ -47,8 +47,8 @@ const NavBar = () => {
                 key={item.id}
                 href={item.href}
                 className={`flex flex-col cursor-pointer items-center gap-2 px-6 py-3 xl:px-8 xl:py-4 rounded-xl transition-all duration-300 ease-out 
-                 hover:bg-blue-700 hover:-translate-y-0.5 w-[90px] xl:w-[110px] group ${
-                isActive ? 'bg-blue-800' : ''
+                 hover:bg-indigo-50 hover:-translate-y-0.5 w-[90px] xl:w-[110px] group ${
+                isActive ? 'bg-indigo-100' : ''
                 }`}
               >
                 <div className={`min-w-8 xl:min-w-9 cursor-pointer min-h-8 xl:min-h-9 rounded-lg flex items-center justify-center transition-all duration-300 ${
@@ -101,7 +101,7 @@ const NavBar = () => {
               <Link
                 key={item.id}
                 href={item.href}
-                className="flex flex-col cursor-pointer items-center gap-1.5 px-4 py-2 rounded-xl transition-all duration-300 ease-out hover:bg-blue-700"
+                className="flex flex-col cursor-pointer items-center gap-1.5 px-4 py-2 rounded-xl transition-all duration-300 ease-out hover:bg-indigo-50"
               >
                 <div className={`min-w-7 cursor-pointer min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
                   isActive 
