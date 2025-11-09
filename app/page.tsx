@@ -15,7 +15,7 @@ const SplashScreen: React.FC = () => {
   }, [router]);
 
   return (
-    <section className="flex justify-center items-center min-h-screen bg-blue-500">
+    <section className="flex justify-center items-center min-h-screen bg-blue-800">
       <div className="text-center px-6">
         <h1 className="text-[40px] md:text-[50px] lg:text-[60px] text-white font-bold animate-pulse">
           Welcome to Healthify
