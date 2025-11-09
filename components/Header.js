@@ -29,13 +29,13 @@ const Header = () => {
     <>
       <header className='fixed top-0 left-0 right-0 w-full bg-white shadow-gray-200 shadow-md flex justify-between items-center px-4 sm:px-6 lg:px-10 py-3 z-50'>
         <div>
-          <h1 className='text-[20px] sm:text-[25px] lg:text-[40px] text-[#4203a9] font-bold'>HEALTHIFY</h1>
+          <h1 className='text-[20px] sm:text-[25px] lg:text-[40px] text-blue-800 font-bold'>HEALTHIFY</h1>
         </div>
         
         {/* Desktop Navigation */}
         <div className='hidden lg:flex gap-10 items-center cursor-pointer'>
           <IoNotificationsOutline className='w-[50px] h-[50px] rounded-[60px] text-gray-500 bg-[#F5F5F5] p-3'/>
-          <Link href="/explore" className='bg-[#4203a9] cursor-pointer max-w-[250px] h-[62px] p-[15px] rounded-[5px] text-white text-[20px] font-medium'>
+          <Link href="/explore" className='bg-blue-800 cursor-pointer max-w-[250px] h-[62px] p-[15px] rounded-[5px] text-white text-[20px] font-medium'>
             Book Appointment
           </Link>
         </div>
@@ -48,7 +48,7 @@ const Header = () => {
           {/* Hamburger/Close Menu Button */}
           <button
             onClick={toggleMobileMenu}
-            className='w-[35px] h-[35px] flex items-center justify-center text-[#4203a9] hover:bg-gray-100 rounded-md transition-colors duration-200'
+            className='w-[35px] h-[35px] flex items-center justify-center text-blue-800 hover:bg-gray-100 rounded-md transition-colors duration-200'
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? (
@@ -74,7 +74,7 @@ const Header = () => {
       }`}>
         {/* Mobile Menu Header */}
         <div className='flex justify-between items-center p-4 border-b border-gray-200'>
-          {/* <h2 className='text-lg font-semibold text-[#4203a9]'>Menu</h2> */}
+          {/* <h2 className='text-lg font-semibold text-blue-800'>Menu</h2> */}
           <button
             onClick={toggleMobileMenu}
             className='w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 rounded-full transition-colors duration-200'
@@ -91,42 +91,42 @@ const Header = () => {
             <Link 
               href="/dashboard/home-page" 
               onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
             >
               Home
             </Link>
             <Link 
               href="/dashboard/explore" 
               onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
             >
               Explore
             </Link>
             <Link 
               href="/dashboard/bookings" 
               onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
             >
               Bookings
             </Link>
             <Link 
               href="/dashboard/services" 
               onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
             >
               Services
             </Link>
             <Link 
               href="#" 
               onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
             >
               About Us
             </Link>
             <Link 
               href="#" 
               onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-[#4203a9] rounded-md transition-colors duration-200'
+              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
             >
               Contact
             </Link>
@@ -137,7 +137,7 @@ const Header = () => {
             <Link 
               href="/explore" 
               onClick={toggleMobileMenu}
-              className='block w-full bg-[#4203a9] cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-[#4203a9]/90 transition-colors duration-200 text-center'
+              className='block w-full bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-700/90 transition-colors duration-200 text-center'
             >
               Book Appointment
             </Link>
@@ -154,7 +154,7 @@ const Header = () => {
               <button 
                 onClick={handleLogout}
                 disabled={isLoggingOut}
-                className='text-[#4203a9] hover:text-[#4203a9]/80 font-medium text-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+                className='text-blue-800 hover:text-blue-800/80 font-medium text-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
               >
                 {isLoggingOut ? 'Logging Out...' : 'Log Out'}
               </button>

@@ -53,14 +53,14 @@ const NavBar = () => {
               >
                 <div className={`min-w-7 cursor-pointer min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
                   isActive 
-                    ? 'bg-[#4203a9] text-white scale-110' 
+                    ? 'bg-blue-800 text-white scale-110' 
                     : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200'
                 }`}>
                   <IconComponent size={15} />
                 </div>
                 <span className={`text-[14px] cursor-pointer font-medium transition-colors duration-300 ${
                   isActive 
-                    ? 'text-[#4203a9] font-semibold' 
+                    ? 'text-blue-800 font-semibold' 
                     : 'text-slate-500 group-hover:text-slate-700'
                 }`}>
                   {item.label}
@@ -83,7 +83,7 @@ const NavBar = () => {
         <button 
           onClick={handleLogout}
           disabled={isLoggingOut}
-          className='mb-10 w-3/4 bg-[#4203a9] cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-[#4203a9]/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+          className='mb-10 w-3/4 bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-800/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isLoggingOut ? 'Logging out...' : 'Log out'}
         </button>
@@ -105,14 +105,14 @@ const NavBar = () => {
               >
                 <div className={`min-w-7 cursor-pointer min-h-7 rounded-lg flex items-center justify-center transition-all duration-300 ${
                   isActive 
-                    ? 'bg-[#4203a9] text-white scale-110' 
+                    ? 'bg-blue-800 text-white scale-110' 
                     : 'bg-slate-100 text-slate-500'
                 }`}>
                   <IconComponent size={15} />
                 </div>
                 <span className={`text-[11px] cursor-pointer font-medium transition-colors duration-300 ${
                   isActive 
-                    ? 'text-[#4203a9] font-semibold' 
+                    ? 'text-blue-800 font-semibold' 
                     : 'text-slate-500'
                 }`}>
                   {item.label}

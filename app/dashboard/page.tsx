@@ -80,11 +80,11 @@ function FAQ() {
               </span>
               <div className="flex-shrink-0">
                 {openIndex === index ? (
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#4203a9] rounded-full flex items-center justify-center">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-800 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs sm:text-sm font-bold">−</span>
                   </div>
                 ) : (
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#4203a9] rounded-full flex items-center justify-center">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-800 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs sm:text-sm font-bold">+</span>
                   </div>
                 )}

@@ -17,7 +17,7 @@ const ForgotPasswordPage = () => {
   return (
     <section className='flex gap-[180px]'>
       {/* Left Side - Question Mark Icon */}
-      <div className='hidden max-w-[500px] w-full md:flex justify-center items-center text-center bg-[#4203a9] min-h-screen rounded-tr-[25px] rounded-br-[25px]'>
+      <div className='hidden max-w-[500px] w-full md:flex justify-center items-center text-center bg-blue-800 min-h-screen rounded-tr-[25px] rounded-br-[25px]'>
         <div className='flex flex-col items-center'>
           {/* Question Mark Icon */}
           <div className='w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 border-4 border-white rounded-full flex items-center justify-center mb-8'>
@@ -55,7 +55,7 @@ const ForgotPasswordPage = () => {
             </div>
 
             {/* Send Reset Link Button */}
-            <div onClick={handleSubmit} className='bg-[#4203a9] cursor-pointer hover:bg-[#5a1bb8] transition-colors duration-300 text-white w-full h-[55px] flex justify-center items-center rounded-md'>
+            <div onClick={handleSubmit} className='bg-blue-800 cursor-pointer hover:bg-[#5a1bb8] transition-colors duration-300 text-white w-full h-[55px] flex justify-center items-center rounded-md'>
               {isLoad ?
                 <div className='w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto'></div>
                 : <button 

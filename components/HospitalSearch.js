@@ -53,7 +53,7 @@ const HospitalSearch = () => {
           {/* Search Button */}
           <button
             onClick={handleSearchSubmit}
-            className="h-11 sm:h-12 px-4 sm:px-6 bg-[#4203a9] text-white rounded-lg hover:bg-[#4203a9]/90 transition-colors duration-300 flex items-center justify-center min-w-[100px] sm:min-w-[120px] font-medium text-sm sm:text-base"
+            className="h-11 sm:h-12 px-4 sm:px-6 bg-blue-800 text-white rounded-lg hover:bg-blue-800/90 transition-colors duration-300 flex items-center justify-center min-w-[100px] sm:min-w-[120px] font-medium text-sm sm:text-base"
           >
             <Search className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
             <span className="hidden xs:inline sm:inline">Search</span>

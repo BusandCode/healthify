@@ -57,7 +57,7 @@ const Booking = () => {
                 </div>
               </div>
               <div className='flex items-center gap-[15px]'>
-                <button className='lg:w-[232px] flex items-center text-[18px] lg:text-[20px] h-[44px] p-[10px] bg-[#4203a9] text-white
+                <button className='lg:w-[232px] flex items-center text-[18px] lg:text-[20px] h-[44px] p-[10px] bg-blue-800 text-white
                  rounded-[5px]'>Reschedule Session</button>
                  <h1 className='text-[#ED0505] text-[18px] lg:text-[20px]'>Cancel</h1>
               </div>

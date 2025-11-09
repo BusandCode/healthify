@@ -3,7 +3,7 @@ import { Instagram, Twitter, Facebook } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-600 text-white px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <footer className="bg-blue-800 text-white px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* Top Section */}
       <div className="max-w-6xl mx-auto">
         {/* Email and Social Icons */}

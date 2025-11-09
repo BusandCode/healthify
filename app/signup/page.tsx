@@ -62,7 +62,7 @@ const SignupPage = () => {
   return (
     <section className='flex gap-[220px]'>
       {/* Welcome --> Big Screen */}
-      <div className='hidden max-w-[500px] w-full md:flex justify-center items-center text-center bg-[#4203a9] min-h-screen rounded-tr-[25px] rounded-br-[25px]'>
+      <div className='hidden max-w-[500px] w-full md:flex justify-center items-center text-center bg-blue-800 min-h-screen rounded-tr-[25px] rounded-br-[25px]'>
         <h1 className='text-[30px] md:text-[40px] lg:text-[50px] text-white font-bold'>
           Welcome to Healthify
         </h1>
@@ -72,7 +72,7 @@ const SignupPage = () => {
       <div className='flex max-w-fit mx-auto md:mx-0 flex-col min-h-screen justify-center items-center px-5'>
         <div className='flex justify-center items-start flex-col'>
           {/* Create Account Header */}
-          <h2 className='text-[24px] md:text-[28px] font-semibold text-[#4203a9] mb-4 text-center'>
+          <h2 className='text-[24px] md:text-[28px] font-semibold text-blue-900 mb-4 text-center'>
             Create Account
           </h2>
 
@@ -185,7 +185,7 @@ const SignupPage = () => {
             <button 
               type="submit"
               disabled={loading}
-              className='mt-1 bg-[#4203a9] cursor-pointer hover:bg-[#5a1bb8] transition-colors duration-300 text-white w-full h-[50px] flex justify-center items-center rounded-md disabled:opacity-50 disabled:cursor-not-allowed'
+              className='mt-1 bg-blue-800 cursor-pointer hover:bg-blue-900 transition-colors duration-300 text-white w-full h-[50px] flex justify-center items-center rounded-md disabled:opacity-50 disabled:cursor-not-allowed'
             >
               {loading ? (
                 <>
@@ -220,13 +220,13 @@ const SignupPage = () => {
               )}
             </button>
           </form>
-
+          <div className='w-full max-w-400px mx-auto flex flex-col justify-center items-center'>
           {/* Login Link */}
           <div className='text-center mt-3 w-full max-w-[400px]'>
             <span className='text-gray-600 text-[14px]'>
               Already have an account?{' '}
               <Link href="/login"
-                className='text-[#4203a9] font-medium hover:underline cursor-pointer'
+                className='text-blue-900 font-medium underline cursor-pointer'
               >
                 Log in here
               </Link>
@@ -284,6 +284,7 @@ const SignupPage = () => {
                 </>
               )}
             </button>
+          </div>
           </div>
         </div>
       </div>

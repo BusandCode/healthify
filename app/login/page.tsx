@@ -52,7 +52,7 @@ const LoginPage = () => {
   return (
     <section className='flex flex-col lg:flex-row min-h-screen'>
       {/* Welcome Section - Hidden on mobile, visible on larger screens */}
-      <div className='hidden lg:flex lg:max-w-[500px] lg:w-full justify-center items-center text-center bg-[#4203a9] min-h-screen rounded-tr-[25px] rounded-br-[25px]'>
+      <div className='hidden lg:flex lg:max-w-[500px] lg:w-full justify-center items-center text-center  bg-blue-800 min-h-screen rounded-tr-[25px] rounded-br-[25px]'>
         <h1 className='text-[30px] xl:text-[40px] 2xl:text-[50px] text-white font-bold px-8'>
           Welcome to Healthify
         </h1>
@@ -62,7 +62,7 @@ const LoginPage = () => {
       <div className='flex flex-1 flex-col min-h-screen justify-center items-center px-4 sm:px-6 lg:px-8 py-8'>
         <div className='w-full max-w-[400px]'>
           {/* Login Header */}
-          <h2 className='text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-[#4203a9] mb-6 text-center lg:text-left'>
+          <h2 className='text-[20px] sm:text-[24px] lg:text-[28px] font-semibold text-blue-900 mb-6 text-center lg:text-left'>
             Welcome Back
           </h2>
 
@@ -119,7 +119,7 @@ const LoginPage = () => {
 
             {/* Forgot Password Link */}
             <div className='text-right mb-2'>
-              <Link href="/forgot-password" className='text-[#4203a9] text-[13px] sm:text-[14px] font-medium hover:underline cursor-pointer'>
+              <Link href="/forgot-password" className='text-blue-900 text-[13px] sm:text-[14px] font-medium underline cursor-pointer'>
                 Forgot Password?
               </Link>
             </div>
@@ -128,7 +128,7 @@ const LoginPage = () => {
             <button 
               type="submit"
               disabled={loading}
-              className='mt-2 bg-[#4203a9] cursor-pointer hover:bg-[#5a1bb8] active:bg-[#3a0287] transition-colors duration-300 text-white w-full h-[48px] sm:h-[55px] flex justify-center items-center rounded-md touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed'
+              className='mt-2  bg-blue-800 cursor-pointer hover:bg-blue-900 active:bg-[#3a0287] transition-colors duration-300 text-white w-full h-[48px] sm:h-[55px] flex justify-center items-center rounded-md touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed'
             >
               {loading ? (
                 <>
@@ -170,7 +170,7 @@ const LoginPage = () => {
               Don&apos;t have an account?{' '}
               <Link 
                 href="/signup"
-                className='text-[#4203a9] font-medium hover:underline cursor-pointer'
+                className='text-blue-900 font-medium underline cursor-pointer'
               >
                 Sign up here
               </Link>
