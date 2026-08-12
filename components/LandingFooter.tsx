@@ -4,7 +4,7 @@ import { Instagram, Twitter, Facebook } from 'lucide-react';
 const LandingFooter: React.FC = () => {
   return (
     <footer
-      className="fixed lg:relative bottom-0 right-0 left-0  z-40
+      className="relative bottom-0 right-0 left-0  z-40
       bg-blue-800 text-white px-4 sm:px-6 lg:px-8 py-6"
     >
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
