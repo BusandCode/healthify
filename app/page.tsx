@@ -302,12 +302,12 @@ export default function LandingPage() {
       <Header />
 
       {/* No dashboard NavBar here — this route is public/anonymous, unlike /dashboard */}
-      <main className="pt-[80px]">
+      <main className="pt-20">
 
         {/* ── Hero ── */}
-        <section id="home" className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden scroll-mt-24">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/5 rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+        <section id="home" className="relative bg-white lg:bg-linear-to-br lg:from-blue-900 lg:via-blue-800 lg:to-blue-700 overflow-hidden scroll-mt-24">
+          <div className="absolute top-0 right-0 w-125 h-125 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-75 h-75 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
           <div className="relative max-w-7xl mx-auto px-6 sm:px-10 py-16 sm:py-24 flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 text-center lg:text-left">
@@ -326,8 +326,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="hidden lg:flex flex-shrink-0 relative">
-              <div className="w-[300px] h-[380px] bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden flex items-end justify-center">
+            <div className="hidden lg:flex hrink-0 relative">
+              <div className="w-75 h-[380px] bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden flex items-end justify-center">
                 <Image src="/doctor.png" width={280} height={360} alt="Doctor" className="object-contain" />
               </div>
               <div className="absolute -bottom-4 -left-8 bg-white rounded-2xl shadow-xl px-5 py-4">
