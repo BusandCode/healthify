@@ -1,9 +1,6 @@
 "use client"
 import Header from '@/components/Header'
 import NavBar from '@/components/NavBar'
-import Image from 'next/image';
-import { Search, MapPin } from 'lucide-react';
-
 import Footer from '@/components/Footer';
 import React from 'react'
 import HospitalCard from '@/components/HospitalCard';
@@ -14,12 +11,11 @@ const page = () => {
       <Header />
       <NavBar />
 
-      {/* Main content */}
-      <main className="lg:ml-[170px] pt-[80px] mb-20 lg:mb-0 sm:pt-[100px] flex flex-col gap-[100px]">
-        {/* Hospital Cards */}
+      <main className="lg:ml-[170px] pt-[80px] sm:pt-[100px] pb-20 lg:pb-[120px] flex flex-col gap-[100px]">
         <HospitalCard />
-      <Footer />
       </main>
+
+      <Footer />
     </section>
   )
 }

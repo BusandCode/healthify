@@ -133,53 +133,64 @@ const HospitalCard: React.FC = () => {
 
   return (
     <div>
-      <div className="px-4 py-4 sm:py-6 max-w-7xl mx-auto">
-        <h1 className='font-semibold mb-8 lg:mb-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-blue-800 leading-tight'>
-          Find Healthcare Services
-        </h1>
-        
-        {/* Search Bar */}
-        <form onSubmit={handleSearchSubmit} className="flex flex-col sm:flex-row gap-4 mb-8">
-          <div className="relative w-full flex items-center justify-center">
-            <Search className="absolute left-8 text-blue-600" size={20} />
-            <input
-              type="text"
-              placeholder="Search by name of hospital"
-              value={searchName}
-              onChange={(e) => setSearchName(e.target.value)}
-              className="w-full max-w-[300px] lg:max-w-[415px] h-[50px] lg:h-[70px] pl-12 pr-4 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9]"
-            />
-          </div>
-          <div className="relative w-full flex items-center justify-center">
-            <MapPin className="absolute left-8 text-blue-600" size={20} />
-            <input
-              type="text"
-              placeholder="Enter Location"
-              value={searchLocation}
-              onChange={(e) => setSearchLocation(e.target.value)}
-              className="w-full max-w-[300px] lg:max-w-[415px] h-[50px] lg:h-[70px] pl-12 pr-4 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4203a9]"
-            />
-          </div>
+     {/* Hero / Search Section */}
+<div className="bg-gradient-to-br from-blue-800 to-blue-900 px-4 py-10 sm:py-14 lg:py-16">
+  <div className="max-w-5xl mx-auto text-center">
+    <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-2">
+      Find Healthcare Services
+    </h1>
+    <p className="text-blue-100 text-sm sm:text-base mb-8">
+      Search hospitals and clinics near you, then book an appointment in minutes.
+    </p>
 
-          <div className="flex gap-2 w-full max-w-[300px] mx-auto lg:max-w-[350px]">
-            <button 
-              type="submit"
-              className="h-[50px] lg:h-[70px] flex items-center justify-center bg-blue-800 text-white rounded-[5px] hover:bg-blue-900 transition flex-1 font-medium"
-            >
-              Search
-            </button>
-            <button 
-              type="button"
-              onClick={() => setShowFilter(true)}
-              className="h-[50px] lg:h-[70px] flex items-center justify-center gap-2 bg-[#D9D9D9] border border-gray-300 rounded-[5px] text-[#2C2C2C] hover:bg-gray-100 transition px-3 sm:px-4"
-            >
-              <SlidersHorizontal size={18} className='text-blue-600' /> 
-              <span className="hidden sm:inline">Filters</span>
-            </button>
-          </div>
-        </form>
+    {/* Unified Search Bar */}
+    <form
+      onSubmit={handleSearchSubmit}
+      className="bg-white rounded-2xl shadow-xl p-2 flex flex-col lg:flex-row gap-2 max-w-3xl mx-auto"
+    >
+      <div className="relative flex-1 flex items-center">
+        <Search className="absolute left-4 text-gray-400" size={18} />
+        <input
+          type="text"
+          placeholder="Search by hospital name"
+          value={searchName}
+          onChange={(e) => setSearchName(e.target.value)}
+          className="w-full h-12 lg:h-14 pl-11 pr-4 rounded-xl text-sm sm:text-base text-gray-800 placeholder:text-gray-400 focus:outline-none focus:bg-gray-50"
+        />
       </div>
 
+      <div className="hidden lg:block w-px bg-gray-200 my-2" />
+
+      <div className="relative flex-1 flex items-center">
+        <MapPin className="absolute left-4 text-gray-400" size={18} />
+        <input
+          type="text"
+          placeholder="Location"
+          value={searchLocation}
+          onChange={(e) => setSearchLocation(e.target.value)}
+          className="w-full h-12 lg:h-14 pl-11 pr-4 rounded-xl text-sm sm:text-base text-gray-800 placeholder:text-gray-400 focus:outline-none focus:bg-gray-50"
+        />
+      </div>
+
+      <div className="flex gap-2">
+        <button
+          type="submit"
+          className="flex-1 lg:flex-none h-12 lg:h-14 px-6 flex items-center justify-center bg-blue-800 text-white rounded-xl hover:bg-blue-900 transition font-medium text-sm sm:text-base"
+        >
+          Search
+        </button>
+        <button
+          type="button"
+          onClick={() => setShowFilter(true)}
+          className="h-12 lg:h-14 px-4 flex items-center justify-center gap-2 bg-gray-100 rounded-xl text-gray-600 hover:bg-gray-200 transition"
+        >
+          <SlidersHorizontal size={18} />
+          <span className="hidden sm:inline text-sm font-medium">Filters</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
       {/* Hospital Cards Grid */}
       {loading ? (
         <div className="flex justify-center items-center py-20">
