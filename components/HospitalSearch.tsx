@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import { Search, MapPin, X } from 'lucide-react';
 
-const HospitalSearch = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [location, setLocation] = useState('');
-  const [selectedFilters, setSelectedFilters] = useState([
+const HospitalSearch: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [location, setLocation] = useState<string>('');
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([
     'Dentist',
     'Radiology',
     'Radiology',
@@ -13,12 +13,12 @@ const HospitalSearch = () => {
     'Radiology'
   ]);
 
-  const handleRemoveFilter = (index) => {
+  const handleRemoveFilter = (index: number): void => {
     const newFilters = selectedFilters.filter((_, i) => i !== index);
     setSelectedFilters(newFilters);
   };
 
-  const handleSearchSubmit = () => {
+  const handleSearchSubmit = (): void => {
     console.log('Searching for:', searchQuery, 'in location:', location);
   };
 

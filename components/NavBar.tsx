@@ -1,16 +1,54 @@
-// components/NavBar.jsx
+// components/NavBar.tsx
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Search, Calendar, Bookmark, User } from 'lucide-react';
-import { signOut } from '@/app/actions/auth';
+import { Home, Search, Calendar, Bookmark, User, LucideIcon } from 'lucide-react';
+import { signOut, getAuthenticatedUser } from '@/app/actions/auth';
 
-const NavBar = () => {
+interface NavItem {
+  id: string
+  label: string
+  icon: LucideIcon
+  href: string
+}
+
+interface UserData {
+  firstName: string
+  lastName: string
+  email: string
+}
+
+const NavBar: React.FC = () => {
   const pathname = usePathname();
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState<boolean>(false);
+  const [user, setUser] = useState<UserData | null>(null);
 
-  const navItems = [
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userData = await getAuthenticatedUser();
+      if (userData) {
+        setUser({
+          firstName: userData.firstName || '',
+          lastName: userData.lastName || '',
+          email: userData.email || '',
+        });
+      }
+    };
+    fetchUser();
+  }, []);
+
+  const displayName = user
+    ? user.firstName && user.lastName
+      ? `${user.firstName} ${user.lastName}`
+      : user.firstName || user.email?.split('@')[0] || 'User'
+    : '';
+
+  const initials = displayName
+    ? displayName.split(' ').map((n: string) => n[0]).join('').toUpperCase().slice(0, 2)
+    : 'U';
+
+  const navItems: NavItem[] = [
     { id: 'Home', label: 'Home', icon: Home, href: '/dashboard' },
     { id: 'Explore', label: 'Explore', icon: Search, href: '/dashboard/explore' },
     { id: 'Bookings', label: 'Bookings', icon: Calendar, href: '/dashboard/bookings' },
@@ -18,7 +56,7 @@ const NavBar = () => {
     { id: 'Profile', label: 'Profile', icon: User, href: '/profile' },
   ];
 
-  const handleLogout = async () => {
+  const handleLogout = async (): Promise<void> => {
     setIsLoggingOut(true);
     try {
       await signOut();
@@ -35,12 +73,12 @@ const NavBar = () => {
        backdrop-blur-sm border border-white/20 w-[170px] min-h-[calc(100vh-80px)] 
        lg:flex flex-col items-center z-40">
         
-        {/* Navigation Items Container - positioned at top */}
+        {/* Navigation Items Container */}
         <div className="flex flex-col items-center gap-6 pt-8">
           {navItems.slice(0, 4).map((item) => {
             const IconComponent = item.icon;
             const isActive = pathname === item.href || 
-              (item.id === 'Home' && !navItems.some(navItem => pathname === navItem.href));
+              (item.id === 'Home' && !navItems.slice(1).some(navItem => pathname === navItem.href));
             
             return (
               <Link
@@ -70,20 +108,27 @@ const NavBar = () => {
           })}
         </div>
 
-        {/* Profile Section - positioned at bottom */}
+        {/* Profile Section */}
         <Link
           href="/profile"
-          className="mt-auto mb-6 w-12 h-12 rounded-full
-          bg-gradient-to-br from-slate-200 to-slate-300 border-2
-          border-slate-100 hover:scale-105 transition-transform duration-300 flex items-center justify-center"
+          className="mt-auto mb-2 flex flex-col items-center gap-2 group"
         >
-          <User size={25} className="text-slate-600" />
+          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-700 to-blue-900 
+            border-2 border-slate-100 hover:scale-105 transition-transform duration-300 
+            flex items-center justify-center text-white font-semibold text-sm">
+            {initials}
+          </div>
+          {displayName && (
+            <span className="text-[11px] text-slate-500 font-medium text-center px-2 leading-tight group-hover:text-blue-800 transition-colors">
+              {displayName}
+            </span>
+          )}
         </Link>
         
         <button 
           onClick={handleLogout}
           disabled={isLoggingOut}
-          className='mb-10 w-3/4 bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-800/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+          className='mb-10 mt-3 w-3/4 bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-800/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isLoggingOut ? 'Logging out...' : 'Log out'}
         </button>
@@ -95,7 +140,7 @@ const NavBar = () => {
           {navItems.map((item) => {
             const IconComponent = item.icon;
             const isActive = pathname === item.href || 
-              (item.id === 'Home' && !navItems.some(navItem => pathname === navItem.href));
+              (item.id === 'Home' && !navItems.slice(1).some(navItem => pathname === navItem.href));
             
             return (
               <Link

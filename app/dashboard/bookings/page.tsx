@@ -17,8 +17,6 @@ const page = () => {
         <Booking />
         <Footer />
       </main>
-      {/* <div className="lg:ml-[170px]">
-      </div> */}
     </section>
   )
 }

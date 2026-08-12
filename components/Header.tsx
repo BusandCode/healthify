@@ -1,4 +1,4 @@
-// components/Header.jsx
+// components/Header.tsx
 "use client"
 import React, { useState } from 'react'
 import { IoNotificationsOutline } from "react-icons/io5";
@@ -6,15 +6,15 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Link from 'next/link';
 import { signOut } from '@/app/actions/auth';
 
-const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+const Header: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [isLoggingOut, setIsLoggingOut] = useState<boolean>(false);
 
-  const toggleMobileMenu = () => {
+  const toggleMobileMenu = (): void => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleLogout = async () => {
+  const handleLogout = async (): Promise<void> => {
     setIsLoggingOut(true);
     setIsMobileMenuOpen(false); // Close mobile menu
     try {
@@ -74,7 +74,6 @@ const Header = () => {
       }`}>
         {/* Mobile Menu Header */}
         <div className='flex justify-between items-center p-4 border-b border-gray-200'>
-          {/* <h2 className='text-lg font-semibold text-blue-800'>Menu</h2> */}
           <button
             onClick={toggleMobileMenu}
             className='w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 rounded-full transition-colors duration-200'
@@ -86,52 +85,6 @@ const Header = () => {
 
         {/* Mobile Menu Content */}
         <div className='p-4 space-y-4'>
-          {/* Navigation Links */}
-          {/* <nav className='space-y-3'>
-            <Link 
-              href="/dashboard/home-page" 
-              onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
-            >
-              Home
-            </Link>
-            <Link 
-              href="/dashboard/explore" 
-              onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
-            >
-              Explore
-            </Link>
-            <Link 
-              href="/dashboard/bookings" 
-              onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
-            >
-              Bookings
-            </Link>
-            <Link 
-              href="/dashboard/services" 
-              onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
-            >
-              Services
-            </Link>
-            <Link 
-              href="#" 
-              onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
-            >
-              About Us
-            </Link>
-            <Link 
-              href="#" 
-              onClick={toggleMobileMenu}
-              className='block py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-blue-800 rounded-md transition-colors duration-200'
-            >
-              Contact
-            </Link>
-          </nav> */}
-
           {/* Mobile Actions */}
           <div className='pt-4 border-t border-gray-200 space-y-3'>
             <Link 
@@ -141,14 +94,9 @@ const Header = () => {
             >
               Book Appointment
             </Link>
-            
-            {/* <div className='flex items-center justify-center gap-2 py-2 text-sm text-gray-600'>
-              <IoNotificationsOutline className='w-5 h-5' />
-              <span>Notifications</span>
-            </div> */}
           </div>
 
-          {/* User Profile Section (if needed) */}
+          {/* User Profile Section */}
           <div className='pt-4 border-t border-gray-200'>
             <div className='text-center'>
               <button 

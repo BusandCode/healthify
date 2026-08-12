@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 import { headers } from 'next/headers'
+import { db } from '@/utils/db'
 
 export async function signUp(formData: FormData) {
   const supabase = await createClient()
@@ -23,7 +24,7 @@ export async function signUp(formData: FormData) {
     return { error: 'Password must be at least 6 characters' }
   }
 
-  const { error } = await supabase.auth.signUp({
+  const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
@@ -40,6 +41,27 @@ export async function signUp(formData: FormData) {
       return { error: 'An account with this email already exists. Please log in instead.' }
     }
     return { error: error.message }
+  }
+
+  if (data?.user) {
+    try {
+      await db.user.upsert({
+        where: { id: data.user.id },
+        update: {
+          email: data.user.email ?? email,
+          firstName,
+          lastName,
+        },
+        create: {
+          id: data.user.id,
+          email: data.user.email ?? email,
+          firstName,
+          lastName,
+        },
+      })
+    } catch (dbError) {
+      console.error('Error syncing user to DB during signup:', dbError)
+    }
   }
 
   revalidatePath('/', 'layout')
@@ -90,4 +112,39 @@ export async function signOut() {
   await supabase.auth.signOut()
   revalidatePath('/', 'layout')
   redirect('/')
+}
+
+export async function getAuthenticatedUser() {
+  const supabase = await createClient()
+  const { data: { user }, error } = await supabase.auth.getUser()
+  if (error || !user) {
+    return null
+  }
+
+  try {
+    const dbUser = await db.user.upsert({
+      where: { id: user.id },
+      update: {
+        email: user.email!,
+        firstName: user.user_metadata?.first_name || '',
+        lastName: user.user_metadata?.last_name || '',
+      },
+      create: {
+        id: user.id,
+        email: user.email!,
+        firstName: user.user_metadata?.first_name || '',
+        lastName: user.user_metadata?.last_name || '',
+      },
+    })
+    return dbUser
+  } catch (dbError) {
+    console.error('Error syncing user to DB:', dbError)
+    // Fallback when DB connection is not configured or offline
+    return {
+      id: user.id,
+      email: user.email!,
+      firstName: user.user_metadata?.first_name || '',
+      lastName: user.user_metadata?.last_name || '',
+    }
+  }
 }

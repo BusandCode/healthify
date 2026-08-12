@@ -1,7 +1,7 @@
 import React from 'react';
 import { Instagram, Twitter, Facebook } from 'lucide-react';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-blue-800 text-white px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* Top Section */}
