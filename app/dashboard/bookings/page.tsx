@@ -1,7 +1,7 @@
 "use client"
 import Header from '@/components/Header'
 import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer';
+// import Footer from '@/components/Footer';
 import Booking from '@/components/Booking'
 import React from 'react'
 
@@ -18,7 +18,7 @@ const page = () => {
       </main>
 
       <div className="lg:ml-[170px] mt-16">
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </section>
   )

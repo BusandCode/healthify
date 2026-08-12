@@ -1,7 +1,7 @@
 "use client"
 import Header from '@/components/Header'
 import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer';
+// import Footer from '@/components/Footer';
 import React from 'react'
 import HospitalCard from '@/components/HospitalCard';
 
@@ -15,7 +15,7 @@ const page = () => {
         <HospitalCard />
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </section>
   )
 }

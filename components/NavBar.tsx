@@ -53,7 +53,7 @@ const NavBar: React.FC = () => {
     { id: 'Explore', label: 'Explore', icon: Search, href: '/dashboard/explore' },
     { id: 'Bookings', label: 'Bookings', icon: Calendar, href: '/dashboard/bookings' },
     { id: 'Saved', label: 'Saved', icon: Bookmark, href: '/dashboard/saved' },
-    { id: 'Profile', label: 'Profile', icon: User, href: '/profile' },
+    { id: 'Profile', label: 'Profile', icon: User, href: '/dashboard/profile' },
   ];
 
   const handleLogout = async (): Promise<void> => {

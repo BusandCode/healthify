@@ -1,14 +1,56 @@
 // components/Header.tsx
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoNotificationsOutline } from "react-icons/io5";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { signOut } from '@/app/actions/auth';
+import { createClient } from '@/utils/supabase/client';
+import type { User } from '@supabase/supabase-js';
+
+// Public nav — shown when signed out, or while on the landing page. These are
+// hash-anchors into the landing page's sections, so they work from any route
+// (navigate home + scroll).
+const publicNavLinks = [
+  { label: 'Home', href: '/#home' },
+  { label: 'About', href: '/#about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'FAQ', href: '/#faq' },
+]
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [isLoggingOut, setIsLoggingOut] = useState<boolean>(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [authChecked, setAuthChecked] = useState<boolean>(false);
+
+  useEffect(() => {
+    const supabase = createClient();
+
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user);
+      setAuthChecked(true);
+    });
+
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setAuthChecked(true);
+    });
+
+    return () => {
+      listener.subscription.unsubscribe();
+    };
+  }, []);
+
+  const isSignedIn = authChecked && !!user;
+
+  // The landing page always shows the public nav + "Get Started", even for a
+  // signed-in user — "Book Appointment" only shows once they're inside the
+  // app on a non-landing route.
+  const isLandingPage = pathname === '/';
+  const showAppHeader = isSignedIn && !isLandingPage;
 
   const toggleMobileMenu = (): void => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -31,20 +73,42 @@ const Header: React.FC = () => {
         <div>
           <h1 className='text-[20px] sm:text-[25px] lg:text-[40px] text-blue-800 font-bold'>HEALTHIFY</h1>
         </div>
-        
+
         {/* Desktop Navigation */}
-        <div className='hidden lg:flex gap-10 items-center cursor-pointer'>
-          <IoNotificationsOutline className='w-[50px] h-[50px] rounded-[60px] text-gray-500 bg-[#F5F5F5] p-3'/>
-          <Link href="/explore" className='bg-blue-800 cursor-pointer max-w-[250px] h-[62px] p-[15px] rounded-[5px] text-white text-[20px] font-medium'>
-            Book Appointment
-          </Link>
+        <div className='hidden lg:flex gap-10 items-center'>
+          {showAppHeader ? (
+            <>
+              <IoNotificationsOutline className='w-[50px] h-[50px] rounded-[60px] text-gray-500 bg-[#F5F5F5] p-3 cursor-pointer'/>
+              <Link href="/dashboard/explore" className='bg-blue-800 cursor-pointer max-w-[250px] h-[62px] p-[15px] rounded-[5px] text-white text-[20px] font-medium'>
+                Book Appointment
+              </Link>
+            </>
+          ) : (
+            <>
+              <nav className='flex gap-8 items-center'>
+                {publicNavLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className='text-gray-600 hover:text-blue-800 font-medium text-base transition-colors duration-200'
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+              <Link href="/splash" className='bg-blue-800 cursor-pointer h-[62px] flex items-center px-6 rounded-[5px] text-white text-[20px] font-medium'>
+                Get Started
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
-        <div className='lg:hidden flex items-center gap-3 cursor-pointer'>
-          {/* Mobile Notification Icon */}
-          <IoNotificationsOutline className='w-[35px] h-[35px] rounded-full text-gray-500 bg-[#F5F5F5] p-2'/>
-          
+        <div className='lg:hidden flex items-center gap-3'>
+          {showAppHeader && (
+            <IoNotificationsOutline className='w-[35px] h-[35px] rounded-full text-gray-500 bg-[#F5F5F5] p-2 cursor-pointer'/>
+          )}
+
           {/* Hamburger/Close Menu Button */}
           <button
             onClick={toggleMobileMenu}
@@ -85,29 +149,55 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Content */}
         <div className='p-4 space-y-4'>
-          {/* Mobile Actions */}
-          <div className='pt-4 border-t border-gray-200 space-y-3'>
-            <Link 
-              href="/explore" 
-              onClick={toggleMobileMenu}
-              className='block w-full bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-700/90 transition-colors duration-200 text-center'
-            >
-              Book Appointment
-            </Link>
-          </div>
+          {showAppHeader ? (
+            <>
+              <div className='pt-4 border-t border-gray-200 space-y-3'>
+                <Link 
+                  href="/dashboard/explore" 
+                  onClick={toggleMobileMenu}
+                  className='block w-full bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-700/90 transition-colors duration-200 text-center'
+                >
+                  Book Appointment
+                </Link>
+              </div>
 
-          {/* User Profile Section */}
-          <div className='pt-4 border-t border-gray-200'>
-            <div className='text-center'>
-              <button 
-                onClick={handleLogout}
-                disabled={isLoggingOut}
-                className='text-blue-800 hover:text-blue-800/80 font-medium text-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
-              >
-                {isLoggingOut ? 'Logging Out...' : 'Log Out'}
-              </button>
-            </div>
-          </div>
+              <div className='pt-4 border-t border-gray-200'>
+                <div className='text-center'>
+                  <button 
+                    onClick={handleLogout}
+                    disabled={isLoggingOut}
+                    className='text-blue-800 hover:text-blue-800/80 font-medium text-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+                  >
+                    {isLoggingOut ? 'Logging Out...' : 'Log Out'}
+                  </button>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <nav className='space-y-1'>
+                {publicNavLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={toggleMobileMenu}
+                    className='block py-2.5 px-2 text-gray-700 hover:text-blue-800 font-medium text-base rounded-md hover:bg-gray-50 transition-colors duration-200'
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+              <div className='pt-4 border-t border-gray-200'>
+                <Link
+                  href="/splash"
+                  onClick={toggleMobileMenu}
+                  className='block w-full bg-blue-800 cursor-pointer text-white py-3 px-4 rounded-md font-medium hover:bg-blue-700/90 transition-colors duration-200 text-center'
+                >
+                  Get Started
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>

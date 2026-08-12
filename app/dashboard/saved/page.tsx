@@ -8,7 +8,7 @@ import { getSavedHospitals, toggleSavedHospital } from '@/app/actions/saved'
 import { Hospital } from '@/app/actions/hospitals'
 import Header from '@/components/Header'
 import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer'
+// import Footer from '@/components/Footer'
 
 const SavedScreen: React.FC = () => {
   const [hospitals, setHospitals] = useState<Hospital[]>([])
@@ -170,7 +170,7 @@ const SavedScreen: React.FC = () => {
         </div>
 
       </main>
-              <Footer />
+              {/* <Footer /> */}
     </section>
   )
 }
