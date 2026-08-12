@@ -12,3 +12,6 @@ body{
   /* color: ; */
   /* background:linear(); */
 }
+html{
+  scroll-behavior: smooth;
+}
