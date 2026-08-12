@@ -61,7 +61,7 @@ const HospitalCard: React.FC = () => {
 
   useEffect(() => {
     fetchHospitalsList();
-  }, [filters]); // Refetch on filter changes
+  }, [filters, fetchHospitalsList]); // Added fetchHospitalsList to dependency array
 
   const handleSearchSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();

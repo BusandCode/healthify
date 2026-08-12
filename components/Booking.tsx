@@ -89,7 +89,7 @@ const Booking: React.FC = () => {
           </div>
           <h2 className="text-base font-semibold text-gray-800 mb-1">No appointments yet</h2>
           <p className="text-sm text-gray-500 max-w-xs mb-6">
-            Once you book an appointment with a hospital, it'll show up here.
+            Once you book an appointment with a hospital, it&apos;ll show up here.
           </p>
           <Link
             href="/dashboard/explore"

@@ -67,7 +67,7 @@ const SavedScreen: React.FC = () => {
             <h1 className="font-semibold text-xl sm:text-2xl md:text-3xl text-gray-900">Saved</h1>
           </div>
           <p className="text-sm text-gray-500 mb-6 sm:mb-8">
-            Hospitals you've bookmarked for later
+            Hospitals you&apos;ve bookmarked for later
           </p>
 
           {error && (
@@ -87,7 +87,7 @@ const SavedScreen: React.FC = () => {
               </div>
               <h2 className="text-base font-semibold text-gray-800 mb-1">Nothing saved yet</h2>
               <p className="text-sm text-gray-500 max-w-xs mb-6">
-                Tap the bookmark icon on any hospital while exploring, and it'll show up here.
+                Tap the bookmark icon on any hospital while exploring, and it&apos;ll show up here.
               </p>
               <Link
                 href="/dashboard/explore"
