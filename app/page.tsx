@@ -327,7 +327,7 @@ export default function LandingPage() {
             </div>
 
             <div className="hidden lg:flex hrink-0 relative">
-              <div className="w-75 h-[380px] bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden flex items-end justify-center">
+              <div className="w-75 h-95 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden flex items-end justify-center">
                 <Image src="/doctor.png" width={280} height={360} alt="Doctor" className="object-contain" />
               </div>
               <div className="absolute -bottom-4 -left-8 bg-white rounded-2xl shadow-xl px-5 py-4">
