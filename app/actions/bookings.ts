@@ -1,140 +1,87 @@
 'use server'
 
-import { db } from '@/utils/db'
-import { getAuthenticatedUser } from './auth'
-import { getHospitalById } from './hospitals'
 import { revalidatePath } from 'next/cache'
+import { createClient } from '@/utils/supabase/server'
+import { db } from '@/utils/db'
+import type { Hospital } from '@/app/actions/hospitals'
 
-export interface Booking {
+export interface BookingWithHospital {
   id: string
-  userId: string
-  hospitalId: number
   dateTime: Date
-  status: string // "upcoming" | "completed" | "cancelled"
-  hospital: {
-    id: number
-    name: string
-    address: string
-    image: string
-  }
-}
-
-// Global variable for in-memory simulated booking persistence
-let mockBookings: Booking[] = [
-  {
-    id: 'mock-1',
-    userId: 'mock-user',
-    hospitalId: 1,
-    dateTime: new Date('2026-07-30T08:00:00.000Z'),
-    status: 'upcoming',
-    hospital: {
-      id: 1,
-      name: 'Ikeja General Hospital',
-      address: 'Opebi Link Road, Ikeja',
-      image: '/ikeja.jpg',
-    },
-  },
-]
-
-export async function getBookings() {
-  const user = await getAuthenticatedUser()
-  if (!user) {
-    throw new Error('Not authenticated')
-  }
-
-  try {
-    const dbBookings = await db.booking.findMany({
-      where: {
-        userId: user.id,
-      },
-      include: {
-        hospital: {
-          select: {
-            id: true,
-            name: true,
-            address: true,
-            image: true,
-          },
-        },
-      },
-      orderBy: {
-        dateTime: 'asc',
-      },
-    })
-    return dbBookings as unknown as Booking[]
-  } catch (error) {
-    console.warn('Database query failed for bookings. Returning mock fallback.', error)
-    return mockBookings
-  }
+  status: string
+  createdAt: Date
+  hospital: Hospital
 }
 
 export async function createBooking(hospitalId: number, dateTime: Date) {
-  const user = await getAuthenticatedUser()
-  if (!user) {
-    throw new Error('Not authenticated')
+  const supabase = await createClient()
+  const { data: { user }, error } = await supabase.auth.getUser()
+
+  if (error || !user) {
+    return { success: false, error: 'Not authenticated' }
   }
 
   try {
-    const booking = await db.booking.create({
+    await db.booking.create({
       data: {
         userId: user.id,
         hospitalId,
         dateTime,
         status: 'upcoming',
       },
-      include: {
-        hospital: true,
-      },
     })
     revalidatePath('/dashboard/bookings')
-    return { success: true, booking }
-  } catch (error) {
-    console.warn('Database booking creation failed. Using mock fallback.', error)
-    
-    const hospital = await getHospitalById(hospitalId)
-    if (!hospital) {
-      return { success: false, error: 'Hospital not found' }
-    }
-
-    const newBooking: Booking = {
-      id: `mock-${Date.now()}`,
-      userId: user.id,
-      hospitalId,
-      dateTime,
-      status: 'upcoming',
-      hospital: {
-        id: hospital.id,
-        name: hospital.name,
-        address: hospital.address,
-        image: hospital.image,
-      },
-    }
-    
-    mockBookings.push(newBooking)
-    revalidatePath('/dashboard/bookings')
-    return { success: true, booking: newBooking }
+    return { success: true }
+  } catch (dbError) {
+    console.error('createBooking error:', dbError)
+    return { success: false, error: 'Could not create booking. Please try again.' }
   }
 }
 
-export async function cancelBooking(bookingId: string) {
-  const user = await getAuthenticatedUser()
-  if (!user) {
-    throw new Error('Not authenticated')
+export async function getBookings(): Promise<BookingWithHospital[]> {
+  const supabase = await createClient()
+  const { data: { user }, error } = await supabase.auth.getUser()
+
+  if (error || !user) return []
+
+  try {
+    return await db.booking.findMany({
+      where: { userId: user.id },
+      include: { hospital: true },
+      orderBy: { dateTime: 'asc' },
+    })
+  } catch (dbError) {
+    console.error('getBookings error:', dbError)
+    return []
+  }
+}
+
+export type CancelBookingResult =
+  | { success: true }
+  | { success: false; error: string }
+
+export async function cancelBooking(bookingId: string): Promise<CancelBookingResult> {
+  const supabase = await createClient()
+  const { data: { user }, error } = await supabase.auth.getUser()
+
+  if (error || !user) {
+    return { success: false, error: 'Not authenticated' }
   }
 
   try {
-    await db.booking.delete({
-      where: {
-        id: bookingId,
-      },
+    const booking = await db.booking.findUnique({ where: { id: bookingId } })
+    if (!booking || booking.userId !== user.id) {
+      return { success: false, error: 'Booking not found' }
+    }
+
+    await db.booking.update({
+      where: { id: bookingId },
+      data: { status: 'cancelled' },
     })
     revalidatePath('/dashboard/bookings')
     return { success: true }
-  } catch (error) {
-    console.warn('Database booking cancellation failed. Using mock fallback.', error)
-    
-    mockBookings = mockBookings.filter((b) => b.id !== bookingId)
-    revalidatePath('/dashboard/bookings')
-    return { success: true }
+  } catch (dbError) {
+    console.error('cancelBooking error:', dbError)
+    return { success: false, error: 'Could not cancel booking. Please try again.' }
   }
 }

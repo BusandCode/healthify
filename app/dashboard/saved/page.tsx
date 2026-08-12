@@ -56,11 +56,11 @@ const SavedScreen: React.FC = () => {
   }
 
   return (
-    <section className="min-h-screen bg-white">
+    <section className="bg-white">
       <Header />
       <NavBar />
 
-      <main className="lg:ml-[170px] pt-[80px] mb-20 lg:mb-0 sm:pt-[100px] flex flex-col gap-[100px]">
+      <main className="lg:ml-[170px] pt-[80px] lg:mb-0 sm:pt-[100px] flex flex-col gap-[100px]">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6 pb-24 w-full">
           <div className="flex items-center gap-2 mb-1">
             <Bookmark size={20} className="text-blue-800" />
@@ -168,8 +168,9 @@ const SavedScreen: React.FC = () => {
             </div>
           )}
         </div>
-        <Footer />
+
       </main>
+              <Footer />
     </section>
   )
 }

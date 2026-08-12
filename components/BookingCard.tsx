@@ -43,7 +43,7 @@ const BookingCard = ({ booking, onReschedule, onCancel }: BookingCardProps) => {
   const isUpcoming = booking.status === 'upcoming'
 
   return (
-    <div className='border border-gray-200 rounded-[16px] lg:rounded-[20px] w-full max-w-[603px] p-4 lg:p-6'>
+    <div className='border border-gray-200 rounded-[16px] lg:rounded-[20px] w-full max-w-[603px] p-4 lg:p-6 mb-20'>
       {/* Header row: title + status badge (badge only shown for history items) */}
       <div className='flex items-start justify-between gap-3 mb-4 lg:mb-5'>
         <h2 className='font-normal text-[15px] lg:text-[20px] leading-snug'>

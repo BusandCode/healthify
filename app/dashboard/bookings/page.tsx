@@ -8,15 +8,18 @@ import React from 'react'
 
 const page = () => {
   return (
-    <section className="min-h-screen bg-white">
+    <section className="bg-white">
       <Header />
       <NavBar />
 
       {/* Main content */}
-      <main className="lg:ml-[170px] pt-[80px] mb-20 lg:mb-0 sm:pt-[100px] flex flex-col gap-[100px]">
+      <main className="lg:ml-[170px] pt-[80px] sm:pt-[100px] flex flex-col gap-[100px]">
         <Booking />
-        <Footer />
       </main>
+
+      <div className="lg:ml-[170px] mt-16">
+        <Footer />
+      </div>
     </section>
   )
 }
