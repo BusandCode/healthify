@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { MapPin, Search, SlidersHorizontal, Bookmark, ArrowLeft, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -47,7 +47,7 @@ const HospitalCard: React.FC = () => {
     'Neurology'
   ];
 
-  const fetchHospitalsList = async () => {
+  const fetchHospitalsList = useCallback(async () => {
     setLoading(true);
     try {
       const list = await getHospitals(searchName, searchLocation, filters);
@@ -57,11 +57,11 @@ const HospitalCard: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [searchName, searchLocation, filters]);
 
   useEffect(() => {
     fetchHospitalsList();
-  }, [filters, fetchHospitalsList]); // Added fetchHospitalsList to dependency array
+  }, [fetchHospitalsList]);
 
   const handleSearchSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
