@@ -124,7 +124,7 @@ function AboutUs() {
 
           <Reveal direction="left" delay={150} className="relative flex justify-center">
             <div className="w-[280px] h-[320px] sm:w-[340px] sm:h-[380px] bg-gradient-to-br from-blue-700 to-blue-900 rounded-3xl overflow-hidden flex items-end justify-center shadow-2xl transition-transform duration-500 hover:scale-[1.03] hover:shadow-blue-900/30">
-              <Image src="/doctor-2.png" alt="Healthify team" width={320} height={380} className="object-contain animate-[float_6s_ease-in-out_infinite]" />
+              <Image src="/doctor-3.png" alt="Healthify team" width={320} height={380} className="object-contain animate-[float_6s_ease-in-out_infinite]" />
             </div>
             <div className="absolute bottom-6 -left-4 sm:-left-8 bg-white border border-gray-100 shadow-lg rounded-2xl px-5 py-4 animate-[float_5s_ease-in-out_infinite]">
               <p className="text-sm font-semibold text-gray-900">Our mission</p>
@@ -371,11 +371,9 @@ export default function LandingPage() {
       <main className="pt-20">
 
         {/* ── Hero ── */}
-        <section id="home" className="relative bg-linear-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden scroll-mt-24">
-          {/* Circle 1: travels from far left edge to far right edge */}
-          <div className="absolute w-125 h-125 top-[-10%] bg-white/5 rounded-full pointer-events-none animate-[driftX_10s_ease-in-out_infinite]" />
-          {/* Circle 2: travels from far top edge to far bottom edge */}
-          <div className="absolute h-75 w-75 left-[-10%] bg-white/5 rounded-full pointer-events-none animate-[driftY_11s_ease-in-out_infinite]" />
+        <section id="home" className="relative bg-white lg:bg-linear-to-br lg:from-blue-900 lg:via-blue-800 lg:to-blue-700 overflow-hidden scroll-mt-24">
+          <div className="absolute top-0 right-0 w-125 h-125 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none animate-[blob_10s_ease-in-out_infinite]" />
+          <div className="absolute bottom-0 left-0 w-75 h-75 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none animate-[blob_12s_ease-in-out_infinite_reverse]" />
 
           <div className="relative max-w-7xl mx-auto px-6 sm:px-10 py-16 sm:py-24 flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 text-center lg:text-left">
@@ -511,8 +509,7 @@ export default function LandingPage() {
         {/* ── CTA ── */}
         <section className="relative bg-blue-800 py-20 overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
-            {/* Diagonal drift, corner to corner */}
-            <div className="absolute w-[600px] h-[600px] bg-white/5 rounded-full animate-[driftDiagonal_9s_ease-in-out_infinite]" />
+            <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 animate-[pulseSlow_6s_ease-in-out_infinite]" />
           </div>
           <div className="relative max-w-3xl mx-auto px-6 text-center">
             <Reveal>
@@ -532,7 +529,7 @@ export default function LandingPage() {
                 Get started for free
               </a>
               <a
-                href="/dashboard/explore"
+                href="/dashboard/hospital"
                 className="inline-block bg-transparent border-2 border-white/40 text-white font-semibold text-sm px-8 py-4 rounded-xl hover:bg-white/10 hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 Browse providers
@@ -551,17 +548,9 @@ export default function LandingPage() {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-14px); }
         }
-        @keyframes driftX {
-          0%, 100% { left: -20%; }
-          50% { left: 100%; }
-        }
-        @keyframes driftY {
-          0%, 100% { top: -20%; }
-          50% { top: 100%; }
-        }
-        @keyframes driftDiagonal {
-          0%, 100% { left: -25%; top: -25%; opacity: 0.5; }
-          50% { left: 100%; top: 100%; opacity: 0.9; }
+        @keyframes blob {
+          0%, 100% { transform: translate(var(--tx, 0), var(--ty, -50%)) scale(1); }
+          50% { transform: translate(calc(var(--tx, 0) + 20px), calc(var(--ty, -50%) - 10px)) scale(1.08); }
         }
         @keyframes pulseSlow {
           0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }

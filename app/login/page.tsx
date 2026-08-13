@@ -3,6 +3,24 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { signIn, signInWithGoogle } from '../actions/auth'
 
+// redirect() (called inside the signIn / signInWithGoogle server actions on
+// success) works by throwing a special error tagged with a NEXT_REDIRECT
+// digest, which Next.js expects to propagate all the way up so it can
+// perform the navigation. A plain try/catch around the action call
+// intercepts that throw before Next.js sees it — the router still
+// redirects, but our own catch block also fires and flashes "unexpected
+// error occurred" first. Detect it here and rethrow rather than treat it
+// as a real failure.
+function isRedirectError(err: unknown): boolean {
+  return (
+    typeof err === 'object' &&
+    err !== null &&
+    'digest' in err &&
+    typeof (err as { digest?: unknown }).digest === 'string' &&
+    (err as { digest: string }).digest.startsWith('NEXT_REDIRECT')
+  )
+}
+
 const LoginPage = () => {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -24,6 +42,9 @@ const LoginPage = () => {
         setLoading(false)
       }
     } catch (err) {
+      if (isRedirectError(err)) {
+        throw err
+      }
       setError('An unexpected error occurred. Please try again.')
       setLoading(false)
       console.error('Login error:', err)
@@ -43,6 +64,9 @@ const LoginPage = () => {
       }
       // If successful, redirect will happen automatically
     } catch (err) {
+      if (isRedirectError(err)) {
+        throw err
+      }
       setError('Failed to sign in with Google. Please try again.')
       setGoogleLoading(false)
       console.error('Google sign in error:', err)

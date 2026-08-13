@@ -3,8 +3,26 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { signUp, signInWithGoogle } from '../actions/auth'
 
+// redirect() (called inside the signUp server action on success) works by
+// throwing a special error tagged with a NEXT_REDIRECT digest, which
+// Next.js expects to propagate all the way up so it can perform the
+// navigation. A plain try/catch around the action call intercepts that
+// throw before Next.js sees it — the router still redirects, but our own
+// catch block also fires and flashes "unexpected error occurred" first.
+// Detect it here and rethrow rather than treat it as a real failure.
+function isRedirectError(err: unknown): boolean {
+  return (
+    typeof err === 'object' &&
+    err !== null &&
+    'digest' in err &&
+    typeof (err as { digest?: unknown }).digest === 'string' &&
+    (err as { digest: string }).digest.startsWith('NEXT_REDIRECT')
+  )
+}
+
 const SignupPage = () => {
   const [error, setError] = useState<string | null>(null)
+  const [infoMessage, setInfoMessage] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [googleLoading, setGoogleLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
@@ -14,6 +32,7 @@ const SignupPage = () => {
     e.preventDefault()
     setLoading(true)
     setError(null)
+    setInfoMessage(null)
     
     const formData = new FormData(e.currentTarget)
     const password = formData.get('password') as string
@@ -28,12 +47,26 @@ const SignupPage = () => {
     
     try {
       const result = await signUp(formData)
-      
+
       if (result?.error) {
         setError(result.error)
         setLoading(false)
+        return
       }
+
+      // signUp() only returns (instead of redirecting) when Supabase
+      // requires email confirmation — there's no session yet. Surface that
+      // to the user and stop the spinner, or the button spins forever.
+      if (result?.requiresEmailConfirmation) {
+        setInfoMessage(result.message ?? 'Account created! Please check your email to confirm your account.')
+        setLoading(false)
+        return
+      }
+      // Otherwise signUp() already redirected server-side.
     } catch (err) {
+      if (isRedirectError(err)) {
+        throw err
+      }
       setError('An unexpected error occurred. Please try again.')
       setLoading(false)
       console.error('Signup error:', err)
@@ -53,6 +86,9 @@ const SignupPage = () => {
       }
       // If successful, redirect will happen automatically
     } catch (err) {
+      if (isRedirectError(err)) {
+        throw err
+      }
       setError('Failed to sign in with Google. Please try again.')
       setGoogleLoading(false)
       console.error('Google sign up error:', err)
@@ -80,6 +116,13 @@ const SignupPage = () => {
           {error && (
             <div className='w-full max-w-[400px] mb-3 p-3 bg-red-50 border border-red-200 rounded-md'>
               <p className='text-red-600 text-sm'>{error}</p>
+            </div>
+          )}
+
+          {/* Success / email-confirmation Message */}
+          {infoMessage && (
+            <div className='w-full max-w-[400px] mb-3 p-3 bg-green-50 border border-green-200 rounded-md'>
+              <p className='text-green-700 text-sm'>{infoMessage}</p>
             </div>
           )}
 
