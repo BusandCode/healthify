@@ -3,7 +3,7 @@ import LandingFooter from '@/components/LandingFooter'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { FaStar, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaStar, FaMapMarkerAlt, FaArrowLeft } from 'react-icons/fa'
 import { db } from '@/utils/db'
 
 function formatFee(fee: number) {
@@ -38,6 +38,13 @@ export default async function PublicHospitalDetailPage({
 
       <main className="pt-24 flex-1">
         <div className="max-w-5xl mx-auto px-6 sm:px-10 py-10">
+          <Link
+            href="/explore"
+            className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-blue-800 transition-colors mb-4"
+          >
+            <FaArrowLeft className="text-xs" /> Back to providers
+          </Link>
+
           <div className="relative w-full h-56 sm:h-72 rounded-2xl overflow-hidden bg-gray-100 mb-6">
             {hospital.image && (
               <Image src={hospital.image} alt={hospital.name} fill className="object-cover" />
