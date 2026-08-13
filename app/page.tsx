@@ -7,6 +7,7 @@ import { FaUserMd, FaHospital, FaCalendarAlt, FaShieldAlt, FaMapMarkerAlt, FaHea
 import { useState, useRef, useEffect, ReactNode } from 'react'
 // import Footer from '@/components/Footer'
 import LandingFooter from '@/components/LandingFooter'
+import Link from 'next/link'
 
 /* ──────────────────────────────────────────────
    Scroll-reveal utilities
@@ -522,18 +523,18 @@ export default function LandingPage() {
             </Reveal>
             <Reveal delay={150} className="flex flex-col sm:flex-row gap-4 justify-center">
               {/* Get Started now routes through the splash screen, which redirects to /signup */}
-              <a
-                href="/splash"
-                className="inline-block bg-white text-blue-800 font-semibold text-sm px-8 py-4 rounded-xl hover:bg-blue-50 hover:scale-105 active:scale-95 transition-all duration-200"
-              >
-                Get started for free
-              </a>
-              <a
-                href="/dashboard/hospital"
-                className="inline-block bg-transparent border-2 border-white/40 text-white font-semibold text-sm px-8 py-4 rounded-xl hover:bg-white/10 hover:scale-105 active:scale-95 transition-all duration-200"
-              >
-                Browse providers
-              </a>
+                      <Link
+            href="/splash"
+            className="inline-block bg-white text-blue-800 font-semibold text-sm px-8 py-4 rounded-xl hover:bg-blue-50 hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            Get started for free
+          </Link>
+          <Link
+            href="/dashboard/hospital"
+            className="inline-block bg-transparent border-2 border-white/40 text-white font-semibold text-sm px-8 py-4 rounded-xl hover:bg-white/10 hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            Browse providers
+          </Link>
             </Reveal>
           </div>
         </section>

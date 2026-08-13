@@ -1,26 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 model User {
-  id        String    @id
-  email     String    @unique
-  firstName String?
-  lastName  String?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  bookings  Booking[]
+  id             String          @id
+  email          String          @unique
+  firstName      String?
+  lastName       String?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  bookings       Booking[]
   savedHospitals SavedHospital[]
 }
 
 model Hospital {
-  id              Int       @id @default(autoincrement())
+  id              Int             @id @default(autoincrement())
   name            String
   image           String
   distance        String
@@ -30,29 +30,30 @@ model Hospital {
   reviews         Int
   specializations String[]
   insurances      String[]
+  createdAt       DateTime        @default(now())
   bookings        Booking[]
-  createdAt       DateTime  @default(now())
-  savedBy        SavedHospital[]
+  savedBy         SavedHospital[]
 }
 
 model Booking {
   id         String   @id @default(uuid())
   userId     String
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   hospitalId Int
-  hospital   Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
   dateTime   DateTime
   status     String   @default("upcoming")
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  hospital   Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
 model SavedHospital {
   id         String   @id @default(uuid())
   userId     String
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   hospitalId Int
-  hospital   Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
   createdAt  DateTime @default(now())
+  hospital   Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, hospitalId])
 }
