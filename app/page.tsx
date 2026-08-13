@@ -124,7 +124,7 @@ function AboutUs() {
 
           <Reveal direction="left" delay={150} className="relative flex justify-center">
             <div className="w-[280px] h-[320px] sm:w-[340px] sm:h-[380px] bg-gradient-to-br from-blue-700 to-blue-900 rounded-3xl overflow-hidden flex items-end justify-center shadow-2xl transition-transform duration-500 hover:scale-[1.03] hover:shadow-blue-900/30">
-              <Image src="/doctor-3.png" alt="Healthify team" width={320} height={380} className="object-contain animate-[float_6s_ease-in-out_infinite]" />
+              <Image src="/doctor-2.png" alt="Healthify team" width={320} height={380} className="object-contain animate-[float_6s_ease-in-out_infinite]" />
             </div>
             <div className="absolute bottom-6 -left-4 sm:-left-8 bg-white border border-gray-100 shadow-lg rounded-2xl px-5 py-4 animate-[float_5s_ease-in-out_infinite]">
               <p className="text-sm font-semibold text-gray-900">Our mission</p>
@@ -371,7 +371,7 @@ export default function LandingPage() {
       <main className="pt-20">
 
         {/* ── Hero ── */}
-        <section id="home" className="relative bg-white lg:bg-linear-to-br lg:from-blue-900 lg:via-blue-800 lg:to-blue-700 overflow-hidden scroll-mt-24">
+        <section id="home" className="relative bg-linear-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden scroll-mt-24">
           <div className="absolute top-0 right-0 w-125 h-125 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none animate-[blob_10s_ease-in-out_infinite]" />
           <div className="absolute bottom-0 left-0 w-75 h-75 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none animate-[blob_12s_ease-in-out_infinite_reverse]" />
 
