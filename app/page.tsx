@@ -530,11 +530,11 @@ export default function LandingPage() {
             Get started for free
           </Link>
           <Link
-            href="/dashboard/hospital"
-            className="inline-block bg-transparent border-2 border-white/40 text-white font-semibold text-sm px-8 py-4 rounded-xl hover:bg-white/10 hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            Browse providers
-          </Link>
+          href="/explore"
+          className="inline-block bg-transparent border-2 border-white/40 text-white font-semibold text-sm px-8 py-4 rounded-xl hover:bg-white/10 hover:scale-105 active:scale-95 transition-all duration-200"
+        >
+          Browse providers
+        </Link>
             </Reveal>
           </div>
         </section>
