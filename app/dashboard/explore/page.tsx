@@ -11,7 +11,9 @@ const page = () => {
       <Header />
       <NavBar />
 
-      <main className="lg:ml-[170px] pt-[80px] sm:pt-[100px] pb-20 lg:pb-[120px] flex flex-col gap-[100px]">
+      {/* pt matches Header's h-16 sm:h-20 lg:h-24 exactly — main sits
+          immediately below the fixed header, no extra buffer. */}
+      <main className="lg:ml-[170px] pt-16 sm:pt-20 lg:pt-24 pb-20 lg:pb-[120px] flex flex-col gap-[100px]">
         <HospitalCard />
       </main>
 

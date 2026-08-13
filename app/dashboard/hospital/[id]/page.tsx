@@ -21,7 +21,7 @@ import {
   Star,
   Check,
 } from 'lucide-react'
-import Header, { HEADER_OFFSET_CLASS } from '@/components/Header'
+import NavBar from '@/components/NavBar'
 import { getHospitalById, Hospital } from '@/app/actions/hospitals'
 import { createBooking } from '@/app/actions/bookings'
 import { toggleSavedHospital } from '@/app/actions/saved'
@@ -182,26 +182,20 @@ const HospitalDetails: React.FC = () => {
 
   if (loading) {
     return (
-      <>
-        <Header />
-        <div className={`flex justify-center items-center py-32 ${HEADER_OFFSET_CLASS}`}>
-          <div className="w-10 h-10 border-4 border-blue-800 border-t-transparent rounded-full animate-spin" />
-        </div>
-      </>
+      <div className="flex justify-center items-center py-32">
+        <div className="w-10 h-10 border-4 border-blue-800 border-t-transparent rounded-full animate-spin" />
+      </div>
     )
   }
 
   if (!hospital) {
     return (
-      <>
-        <Header />
-        <div className={`text-center py-32 px-4 ${HEADER_OFFSET_CLASS}`}>
-          <p className="text-gray-500 font-medium mb-4">Hospital not found.</p>
-          <Link href="/dashboard/explore" className="text-blue-800 underline font-medium">
-            Back to Explore
-          </Link>
-        </div>
-      </>
+      <div className="text-center py-32 px-4">
+        <p className="text-gray-500 font-medium mb-4">Hospital not found.</p>
+        <Link href="/dashboard/explore" className="text-blue-800 underline font-medium">
+          Back to Explore
+        </Link>
+      </div>
     )
   }
 
@@ -316,9 +310,9 @@ const HospitalDetails: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <NavBar />
 
-      <div className={`max-w-5xl mx-auto px-4 py-4 sm:py-6 pb-28 lg:pb-10 ${HEADER_OFFSET_CLASS}`}>
+      <div className="lg:ml-[170px] max-w-5xl mx-auto px-4 py-4 sm:py-6 pb-28 lg:pb-10">
         {/* Back */}
         <button
           onClick={() => router.back()}
@@ -409,7 +403,7 @@ const HospitalDetails: React.FC = () => {
               >
                 {tab.label}
                 {activeTab === tab.key && (
-                  <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-blue-800 rounded-full" />
+                  <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-blue-800 rounded-full" />
                 )}
               </button>
             ))}

@@ -19,6 +19,13 @@ const publicNavLinks = [
   { label: 'FAQ', href: '/#faq' },
 ]
 
+// Header height per breakpoint — kept as an explicit class (not implicit
+// content + padding) so any page that needs to clear the fixed header can
+// use the exact same value for its top padding/margin instead of guessing.
+// If you change h-16/sm:h-20/lg:h-24 here, update HEADER_OFFSET usages
+// (e.g. pt-16 sm:pt-20 lg:pt-24) everywhere else too.
+export const HEADER_OFFSET_CLASS = 'pt-16 sm:pt-20 lg:pt-24'
+
 const Header: React.FC = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -69,7 +76,10 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className='fixed top-0 left-0 right-0 w-full bg-white shadow-gray-200 shadow-md flex justify-between items-center px-4 sm:px-6 lg:px-10 py-3 z-50'>
+      {/* Fixed height (h-16 / sm:h-20 / lg:h-24) instead of letting content +
+          py-3 decide the height implicitly — pages below rely on knowing
+          this exact number to sit flush under the header. */}
+      <header className='fixed top-0 left-0 right-0 w-full bg-white shadow-gray-200 shadow-md flex justify-between items-center h-16 sm:h-20 lg:h-24 px-4 sm:px-6 lg:px-10 z-50'>
         <div>
           <h1 className='text-[20px] sm:text-[25px] lg:text-[40px] text-blue-800 font-bold'>HEALTHIFY</h1>
         </div>

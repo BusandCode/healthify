@@ -203,7 +203,19 @@ const HospitalCard: React.FC = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 px-4 sm:gap-6 items-center justify-center max-w-7xl mx-auto">
           {hospitalsList.map((hospital) => (
-            <div key={hospital.id} className="bg-white w-full max-w-[340px] sm:max-w-[320px] lg:max-w-[350px] rounded-2xl sm:rounded-3xl shadow-md border border-gray-200 overflow-hidden mx-auto">
+            <div
+              key={hospital.id}
+              onClick={() => router.push(`/dashboard/hospital/${hospital.id}`)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  router.push(`/dashboard/hospital/${hospital.id}`);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              className="bg-white w-full max-w-[340px] sm:max-w-[320px] lg:max-w-[350px] rounded-2xl sm:rounded-3xl shadow-md border border-gray-200 overflow-hidden mx-auto cursor-pointer transition hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-800"
+            >
               <div className="p-3 sm:p-4 lg:p-5">
                 {/* Image Container */}
                 <div className="relative mb-4">
@@ -219,7 +231,11 @@ const HospitalCard: React.FC = () => {
                   <span className="absolute top-3 left-3 bg-white text-xs px-2 py-1 rounded-md shadow-sm font-medium">
                     {hospital.distance}
                   </span>
-                  <button className="absolute top-3 right-3 w-8 h-8 sm:w-9 sm:h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm hover:bg-white transition">
+                  <button
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label="Save hospital"
+                    className="absolute top-3 right-3 w-8 h-8 sm:w-9 sm:h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm hover:bg-white transition"
+                  >
                     <Bookmark className="w-4 h-4 sm:w-5 sm:h-5 text-[#0077CC]" />
                   </button>
                 </div>
@@ -251,7 +267,10 @@ const HospitalCard: React.FC = () => {
                   
                   {/* Inline Booking Interface */}
                   {bookingHospitalId === hospital.id ? (
-                    <div className="mt-4 p-3 bg-blue-50 rounded-xl space-y-3 border border-blue-100">
+                    <div
+                      onClick={(e) => e.stopPropagation()}
+                      className="mt-4 p-3 bg-blue-50 rounded-xl space-y-3 border border-blue-100"
+                    >
                       <label className="block text-xs font-semibold text-blue-800">
                         Select Date & Time:
                       </label>
@@ -285,7 +304,10 @@ const HospitalCard: React.FC = () => {
                     </div>
                   ) : (
                     <button 
-                      onClick={() => handleStartBooking(hospital.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleStartBooking(hospital.id);
+                      }}
                       className="w-full bg-blue-800 cursor-pointer text-white text-sm sm:text-base py-2.5 sm:py-3 rounded-lg hover:bg-blue-900 transition font-medium mt-4"
                     >
                       Book Appointment
