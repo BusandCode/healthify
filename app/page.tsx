@@ -510,7 +510,7 @@ export default function LandingPage() {
         {/* ── CTA ── */}
         <section className="relative bg-blue-800 py-20 overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 animate-[pulseSlow_6s_ease-in-out_infinite]" />
+            <div className="absolute top-0 left-1/2 w-150 h-150 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 animate-[pulseSlow_6s_ease-in-out_infinite]" />
           </div>
           <div className="relative max-w-3xl mx-auto px-6 text-center">
             <Reveal>

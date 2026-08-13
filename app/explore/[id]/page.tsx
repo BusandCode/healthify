@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { FaStar, FaMapMarkerAlt } from 'react-icons/fa'
 import { db } from '@/utils/db'
-import { createClient } from '@/utils/supabase/server'
 
 function formatFee(fee: number) {
   return `₦${fee.toLocaleString()}`
@@ -27,22 +26,17 @@ export default async function PublicHospitalDetailPage({
   const hospital = await getHospital(hospitalId)
   if (!hospital) notFound()
 
-  // Only used to decide where "Book appointment" sends the visitor —
-  // this page itself never requires auth.
-  const supabase = await createClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  const bookHref = user
-    ? `/dashboard/explore/${hospital.id}` // logged in → real booking flow
-    : `/signup?redirect=/dashboard/explore/${hospital.id}` // anon → signup, then back to booking
+  // Booking always routes through signup first. The redirect param carries
+  // the intended destination so signup can send the user on to the real
+  // booking flow once they've created an account (or, if they're already
+  // signed in, the signup page can forward them straight there).
+  const bookHref = `/signup?redirect=/dashboard/explore/${hospital.id}`
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <Header />
 
-      <main className="pt-24">
+      <main className="pt-24 flex-1">
         <div className="max-w-5xl mx-auto px-6 sm:px-10 py-10">
           <div className="relative w-full h-56 sm:h-72 rounded-2xl overflow-hidden bg-gray-100 mb-6">
             {hospital.image && (
