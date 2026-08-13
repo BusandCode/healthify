@@ -134,7 +134,7 @@ export default async function DashboardHomePage() {
                   {recommended.map((hospital: any) => (
                     <Link
                       key={hospital.id}
-                      href={`/dashboard/explore/${hospital.id}`}
+                      href={`/dashboard/hospital/${hospital.id}`}
                       className="bg-white border border-gray-200 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow group"
                     >
                       <div className="relative w-full h-32 bg-gray-100">
@@ -188,7 +188,7 @@ export default async function DashboardHomePage() {
                     savedHospitals.map((saved: any) => (
                       <Link
                         key={saved.id}
-                        href={`/dashboard/explore/${saved.hospital.id}`}
+                        href={`/dashboard/hospital/${saved.hospital.id}`}
                         className="flex items-center gap-3 p-4 hover:bg-gray-50 transition-colors"
                       >
                         <div className="relative w-11 h-11 rounded-xl bg-gray-100 overflow-hidden flex-shrink-0">
