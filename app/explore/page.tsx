@@ -5,26 +5,45 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FaStar, FaMapMarkerAlt } from 'react-icons/fa'
 import { db } from '@/utils/db'
+import type { Prisma } from '@prisma/client'
 
 function formatFee(fee: number) {
   return `₦${fee.toLocaleString()}`
 }
 
-async function getPublicHospitals() {
+async function getPublicHospitals(q?: string, location?: string) {
+  const where: Prisma.HospitalWhereInput = {}
+
+  if (q) {
+    where.OR = [
+      { name: { contains: q, mode: 'insensitive' } },
+      { specializations: { has: q } },
+    ]
+  }
+
+  if (location) {
+    where.address = { contains: location, mode: 'insensitive' }
+  }
+
   return db.hospital.findMany({
+    where,
     orderBy: { rating: 'desc' },
     take: 24,
   })
 }
 
-export default async function ExplorePage() {
-  const hospitals = await getPublicHospitals()
+export default async function ExplorePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string; location?: string; filters?: string }>
+}) {
+  const { q, location } = await searchParams
+  const hospitals = await getPublicHospitals(q, location)
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Public route — no NavBar, no auth check. Anyone can browse. */}
       <main className="pt-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-10">
           <section className="mb-10 text-center">
@@ -38,6 +57,14 @@ export default async function ExplorePage() {
               <HospitalSearch />
             </div>
           </section>
+
+          {(q || location) && (
+            <p className="text-sm text-gray-500 mb-4">
+              {hospitals.length} result{hospitals.length !== 1 ? 's' : ''}
+              {q && <> for &ldquo;{q}&rdquo;</>}
+              {location && <> in &ldquo;{location}&rdquo;</>}
+            </p>
+          )}
 
           <section>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -72,7 +99,9 @@ export default async function ExplorePage() {
 
               {hospitals.length === 0 && (
                 <p className="text-sm text-gray-400 col-span-full text-center py-10">
-                  No providers available right now.
+                  {q || location
+                    ? 'No providers match your search.'
+                    : 'No providers available right now.'}
                 </p>
               )}
             </div>

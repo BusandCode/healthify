@@ -9,9 +9,9 @@ import { signOut } from '@/app/actions/auth';
 import { createClient } from '@/utils/supabase/client';
 import type { User } from '@supabase/supabase-js';
 
-// Public nav — shown when signed out, or while on the landing page. These are
-// hash-anchors into the landing page's sections, so they work from any route
-// (navigate home + scroll).
+// Public nav — shown when signed out, or while on a public-facing route.
+// These are hash-anchors into the landing page's sections, so they work from
+// any route (navigate home + scroll).
 const publicNavLinks = [
   { label: 'Home', href: '/#home' },
   { label: 'About', href: '/#about' },
@@ -53,11 +53,12 @@ const Header: React.FC = () => {
 
   const isSignedIn = authChecked && !!user;
 
-  // The landing page always shows the public nav + "Get Started", even for a
-  // signed-in user — "Book Appointment" only shows once they're inside the
-  // app on a non-landing route.
-  const isLandingPage = pathname === '/';
-  const showAppHeader = isSignedIn && !isLandingPage;
+  // Public-facing routes always show the public nav + "Get Started", even for
+  // a signed-in user — "Book Appointment" only shows once they're inside the
+  // app on a dashboard route. /explore is browsable by anyone, signed in or
+  // not, so it stays on the public header too.
+  const isPublicRoute = pathname === '/' || pathname.startsWith('/explore');
+  const showAppHeader = isSignedIn && !isPublicRoute;
 
   const toggleMobileMenu = (): void => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
