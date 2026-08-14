@@ -2,6 +2,7 @@ import React from 'react';
 import { Instagram, Twitter, Facebook } from 'lucide-react';
 
 const LandingFooter: React.FC = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer
       className="relative bottom-0 right-0 left-0  z-40
@@ -11,8 +12,7 @@ const LandingFooter: React.FC = () => {
         <div className="flex items-center gap-3 text-sm text-white/80">
           <span className="text-base font-bold tracking-wide text-white">HEALTHIFY</span>
           <span className="hidden sm:inline text-white/40">|</span>
-          <span>© 2025 Healthify</span>
-          {/* <span>Hell</span> */}
+          <span>© {currentYear} Healthify</span>
         </div>
 
         <div className="flex gap-4 text-xs sm:text-sm text-white/80">

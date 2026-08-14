@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         <div className="flex items-center gap-3 text-sm text-white/80">
           <span className="text-base font-bold tracking-wide text-white">HEALTHIFY</span>
           <span className="hidden sm:inline text-white/40">|</span>
-          <span>© 2025 Healthify</span>
+          <span>© 2026 Healthify</span>
           {/* <span>Hell</span> */}
         </div>
 
